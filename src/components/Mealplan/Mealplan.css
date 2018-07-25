@@ -1,0 +1,12 @@
+.mealplanContainer {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.section {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}

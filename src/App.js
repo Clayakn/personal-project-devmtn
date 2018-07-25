@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Nav from './components/Nav/Nav';
 import routes from './routes';
-import { Link } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
@@ -8,8 +8,7 @@ class App extends Component {
     return (
       <div className='app'>
         Nutrition Made Easy
-        <Link to='/'>Home</Link>
-        <Link to='/mealplan'>Meal Plan</Link>
+        <Nav/>
         {routes}
       </div>
     );
