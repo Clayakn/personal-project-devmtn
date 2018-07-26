@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE users (
+id SERIAL PRIMARY KEY
+, auth0_id TEXT
+, email VARCHAR(100) 
+, username VARCHAR(40) UNIQUE
+, profile_pic TEXT
+);

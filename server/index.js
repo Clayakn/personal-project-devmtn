@@ -1,15 +1,33 @@
 const express = require('express');
 const massive = require('massive');
+const session = require('express-session');
 const bodyParser = require('body-parser');
-const path = require('path')
+const path = require('path');
+const uC = require('./controller/user_controller');
 require('dotenv').config();
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  saveUninitialized: false, 
+  resave: false
+}));
 
 app.use( express.static( `${__dirname}/../build` ) );
 
+massive(process.env.CONNECTION_STRING).then(database => {
+  app.set('db', database);
+}).catch(error => {
+  console.log('Error with Massive', error)
+})
+
+
+
+app.get('/auth/callback', uC.login);
+
+app.post('/api/auth/logout', uC.logout);
 
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));
