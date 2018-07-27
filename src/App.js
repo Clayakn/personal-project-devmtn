@@ -10,9 +10,10 @@ import './App.css';
 class App extends Component {
 
   componentDidMount() {
-    axios.get('/api/user-data').then(response => {
+    this.props.username ? 
+    axios.get('/api/user-data').then(response => { 
       this.props.updateUser(response.data.username,response.data.profilePicture, response.data.userId)
-  })
+  }) : ''
 }
 
   logout() {
@@ -35,4 +36,11 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect(null,{ updateUser })(App));
+const mapStateToProps = state => {
+  const { username } = state
+  return {
+    username
+  }
+}
+
+export default withRouter(connect(mapStateToProps,{ updateUser })(App));

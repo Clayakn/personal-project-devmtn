@@ -3,7 +3,7 @@ import './Mealplan.css';
 import data from '../../foodData.json';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { updateNutrients } from '../../redux/reducer';
+import { addNutrients, subtractNutrients } from '../../redux/reducer';
 
 
 class Mealplan extends Component {
@@ -13,6 +13,46 @@ class Mealplan extends Component {
       mealList: []
     }
     this.getFood = this.getFood.bind(this)
+    this.removeFood = this.removeFood.bind(this)
+  }
+
+  // Method to delete food item from Meal List and Redux 
+  removeFood(id) {
+    this.props.subtractNutrients(
+      this.state.mealList[id].Fat, 
+      this.state.mealList[id].Carbs,
+      this.state.mealList[id].Protein,
+      this.state.mealList[id].Calories,
+      this.state.mealList[id].VitaminA,
+      this.state.mealList[id].VitaminC,
+      this.state.mealList[id].VitaminD,
+      this.state.mealList[id].VitaminE,
+      this.state.mealList[id].VitaminK,
+      this.state.mealList[id].Thiamin,
+      this.state.mealList[id].Riboflavin,
+      this.state.mealList[id].Niacin,
+      this.state.mealList[id].VitaminB6,
+      this.state.mealList[id].Biotin,
+      this.state.mealList[id].Folate,
+      this.state.mealList[id].VitaminB12,
+      this.state.mealList[id].Calcium,
+      this.state.mealList[id].Copper,
+      this.state.mealList[id].Fluoride,
+      this.state.mealList[id].Iodine,
+      this.state.mealList[id].Iron, 
+      this.state.mealList[id].Magnesium, 
+      this.state.mealList[id].Manganese, 
+      this.state.mealList[id].Phosphorus, 
+      this.state.mealList[id].Potassium, 
+      this.state.mealList[id].Sodium, 
+      this.state.mealList[id].Selenium, 
+      this.state.mealList[id].Zinc
+    )
+    const copyMealList = this.state.mealList
+    copyMealList.splice(id,1)
+    this.setState({
+      mealList: copyMealList
+    })
   }
 
  getFood(id) {
@@ -50,9 +90,40 @@ class Mealplan extends Component {
     const Zinc = nutrients.filter(nutrient => nutrient.name === "Zinc, Zn")[0] ? nutrients.filter(nutrient => nutrient.name === "Zinc, Zn")[0].value : 0
   
   
-  this.state.mealList.push({Name: response.data.report.food.name, Fat, Carbs, Protein, Calories})
+  this.state.mealList.push({
+    Name: response.data.report.food.name,
+    FoodId: response.data.report.food.ndbno,
+    Fat, 
+    Carbs, 
+    Protein, 
+    Calories,
+    VitaminA,
+    VitaminC,
+    VitaminD,
+    VitaminE,
+    VitaminK,
+    Thiamin,
+    Riboflavin,
+    Niacin,
+    VitaminB6,
+    Biotin,
+    Folate,
+    VitaminB12,
+    Calcium,
+    Copper,
+    Fluoride,
+    Iodine,
+    Iron, 
+    Magnesium, 
+    Manganese, 
+    Phosphorus, 
+    Potassium, 
+    Sodium, 
+    Selenium, 
+    Zinc
+    })
   console.log(this.state.mealList)
-  this.props.updateNutrients(
+  this.props.addNutrients(
     Fat, 
     Carbs,
     Protein,
@@ -107,6 +178,7 @@ class Mealplan extends Component {
         <p>Carbs: {food.Carbs}g</p>
         <p>Protein: {food.Protein}g</p>
         <p>Calories: {food.Calories}kcal</p>
+        <button onClick={() => this.removeFood(i)}>Delete</button>
         </div>
       )
     }) : ''
@@ -196,4 +268,4 @@ const mapStateToProps = state => {
    Zinc} 
 }
 
-export default connect(mapStateToProps, {updateNutrients})(Mealplan);
+export default connect(mapStateToProps, {addNutrients, subtractNutrients})(Mealplan);
