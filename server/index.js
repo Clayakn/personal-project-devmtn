@@ -4,6 +4,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const uC = require('./controller/user_controller');
+const c = require('./controller/controller');
 require('dotenv').config();
 
 const app = express();
@@ -26,6 +27,15 @@ massive(process.env.CONNECTION_STRING).then(database => {
 
 
 app.get('/auth/callback', uC.login);
+app.get('/api/user-data', checkLoggedIn, c.getUser);
+
+function checkLoggedIn(req, res, next) {
+  if (req.session.user) {
+    next();
+  } else {
+    res.status(404).json({ message: 'User not found' });
+  }
+}
 
 app.post('/api/auth/logout', uC.logout);
 

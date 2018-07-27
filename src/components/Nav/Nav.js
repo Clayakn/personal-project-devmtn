@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Icon from 'react-icons-kit';
 import { menu } from 'react-icons-kit/iconic/menu';
+import { connect } from 'react-redux';
 import './Nav.css';
 
 class Nav extends Component {
@@ -18,18 +19,19 @@ class Nav extends Component {
           Nav Bar
           <button className="menuButton" onClick={() => this.setState({showMenu: !showMenu})}><Icon icon={menu}/></button>
               <ul className={showMenu ? "navMenuList open" : "navMenuList"}>
-                <li><Link to='/' className="navMenuOption">Home</Link></li>
+                <li><NavLink to='/' className="navMenuOption">Home</NavLink></li>
                 <br/>
-                <li><Link to='/mealplan' className="navMenuOption">Meal Plan</Link></li>
-                <br/>
-                <li><a  className="navMenuOption" href=''>ABOUT</a></li>
-                <br/>
-                <li><a  className="navMenuOption" href=''>TEAM</a></li>
-                <br/>
+                <li><NavLink to={this.props.username == false ? '/authentication' : '/mealplan'} className="navMenuOption">Meal Plan</NavLink></li>
               </ul>
         </div>
       );
     }
 }
+const mapStateToProps = state => {
+  const { username } = state
+  return {
+    username
+  }
+}
 
-export default Nav;
+export default connect(mapStateToProps)(Nav);
