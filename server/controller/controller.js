@@ -1,5 +1,5 @@
 module.exports = {
-    getUser: (req, res) => {
+    readUser: (req, res) => {
         res.json({
           username: req.session.user.username,
           profilePicture: req.session.user.profile_pic,

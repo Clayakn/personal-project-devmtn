@@ -1,8 +1,14 @@
-.mealplanContainer {
+.mealplanContainer1 {
     border: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.mealplanContainer2 {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
 }
 
 .mealList {
@@ -14,4 +20,8 @@
     border: 1px solid black;
     display: flex;
     flex-direction: column;
+}
+
+li {
+    list-style: disc;
 }

@@ -25,19 +25,29 @@ massive(process.env.CONNECTION_STRING).then(database => {
 })
 
 
-
+// Server request to login
 app.get('/auth/callback', uC.login);
-app.get('/api/user-data', checkLoggedIn, c.getUser);
+
+// Server request to get user data to display on Navbar
+app.get('/api/user-data', checkLoggedIn, c.readUser);
 
 function checkLoggedIn(req, res, next) {
   if (req.session.user) {
     next();
   } else {
-    res.status(404).json({ message: 'User not found' });
+    res.json({
+      username: '',
+      profilePicture: '',
+      userId: 0
+     });
   }
 }
 
+// Server request to logout 
 app.post('/api/auth/logout', uC.logout);
+
+// Server request to create Meal Plan
+app.post('/api/mealplan', uC.createMealPlan)
 
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));
