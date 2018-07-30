@@ -23,7 +23,7 @@ module.exports = {
 
         function storeUserInfoInDataBase(response){
             const auth0id = response.data.sub
-            return dbInstance.find_user_by_auth0_id(auth0id).then(users => {
+            return dbInstance.read_user_by_auth0_id(auth0id).then(users => {
                 if (users.length) {
                     const user = users[0]
                     req.session.user = user;
@@ -60,7 +60,7 @@ module.exports = {
         const dbInstance = req.app.get('db')
         const auth0Id = req.session.user.auth0_id
         const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc, title, mealList} = req.body
-        dbInstance.find_user_by_auth0_id(auth0Id)
+        dbInstance.read_user_by_auth0_id(auth0Id)
         .then(users => {
         dbInstance.create_totalMealStat({
             title,
@@ -135,5 +135,24 @@ module.exports = {
             console.log('Controller error on createMealPlan', error)
             res.status(500).json({message: 'Server error. See server terminal'})
         })
+    },
+    // Reading user information and title from totalMealStat 
+    readUserAndTitle: (req, res) => {
+        const dbInstance = req.app.get('db')
+        const auth0Id = req.session.user.auth0_id
+        dbInstance.read_user_by_auth0_id(auth0Id)
+        .then(users => {
+            dbInstance.read_totalMealStat_title([users[0].id])
+        .then(titles => {
+            res.status(200).json(
+            {   titles,
+                username: req.session.user.username,
+                profilePicture: req.session.user.profile_pic
+            })
+        })
+        }).catch(error => {
+            console.log('Controller error on readUserAndTitle', error)
+            res.status(500).json({message: 'Server error. See server terminal'})
+        })        
     }
 }

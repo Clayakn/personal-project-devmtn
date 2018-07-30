@@ -31,6 +31,9 @@ app.get('/auth/callback', uC.login);
 // Server request to get user data to display on Navbar
 app.get('/api/user-data', checkLoggedIn, c.readUser);
 
+// Server request to get user data and title from totalMealStat
+app.get('/api/user-data-title', checkLoggedIn, uC.readUserAndTitle)
+
 function checkLoggedIn(req, res, next) {
   if (req.session.user) {
     next();
@@ -43,6 +46,7 @@ function checkLoggedIn(req, res, next) {
   }
 }
 
+
 // Server request to logout 
 app.post('/api/auth/logout', uC.logout);
 
@@ -53,5 +57,5 @@ app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));
 })
 
-PORT = 4000;
+PORT = process.env.PORT;
 app.listen(PORT, () => console.log('Server is listening on port ' + PORT + ' 🚀'))
