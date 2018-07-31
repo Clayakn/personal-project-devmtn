@@ -44,11 +44,11 @@ class Nav extends Component {
       <div className='navContainer'>
         <button className="menuButton" onClick={() => this.setState({showMenu: !showMenu})}><Icon icon={menu}/></button>
           <ul className={showMenu ? "navMenuList open" : "navMenuList"}>
-            <li><NavLink to='/' className="navMenuOption">Home</NavLink></li>
+            <li><NavLink to='/' className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Home</NavLink></li>
             <br/>
-            <li><NavLink to={username ? '/mealplan'  : '/authentication'} className="navMenuOption">Meal Plan</NavLink></li>
+            <li><NavLink to={username ? '/mealplan'  : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Meal Plan</NavLink></li>
             <br/>
-            <li><NavLink to={username ? '/profile' : '/authentication'} className="navMenuOption">Profile</NavLink></li>
+            <li><NavLink to={username ? '/profile' : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Profile</NavLink></li>
             </ul>
             {username ? <Link to='/'><button onClick={()=>this.logout()}> Logout</button></Link> : <button onClick={() => {this.login()}}>Login</button>}
             <p>{username ? "Welcome: " + username : "No user is logged in"}</p>

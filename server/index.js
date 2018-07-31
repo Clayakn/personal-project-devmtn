@@ -56,6 +56,13 @@ app.post('/api/mealplan', uC.createMealPlan);
 // Server request to read Meal Plan by titleId from totalMealStats table
 app.get('/api/mealplan/:titleId', uC.readMealPlan);
 
+// Server request to read meals based on mealplanId 
+app.get('/api/meals/:mealplanId', c.readMeals);
+
+// Server request to read totalMealStat based on mealplanId
+app.get('/api/totalMealStats/:mealplanId', c.readTotalMealStat);
+
+
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));
 })

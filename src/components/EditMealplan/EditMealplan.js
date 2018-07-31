@@ -30,48 +30,54 @@ class Mealplan extends Component {
        return axios.get('/api/user-data');
     }
 
-    function fetchMealplan(){
-        return axios.get(`/api/mealplan/${mealplanId}`);
+    function fetchTotalMealStat(){
+        return axios.get(`/api/totalMealStats/${mealplanId}`);
     }
 
-    axios.all([getUser(),fetchMealplan()]).then(axios.spread((user,mealplan) => {
-        console.log('mealplan.data',mealplan.data)
-        console.log('mealplan.data[0].mealplans',mealplan.data[0].mealplans )
+    function fetchMeals(){
+        return axios.get(`/api/meals/${mealplanId}`);
+    }
+
+    axios.all([getUser(),fetchTotalMealStat(), fetchMeals()]).then(axios.spread((user,mealStat,meal) => {
         this.setState({
             username: user.data.username,
-            title: mealplan.data[0].mealplans[0].title
+            title: mealStat.data.totalMealStats[0].title
         })
         this.props.clearNutrients();
         this.props.addNutrients(
-            mealplan.data[0].mealplans[0].total_fat, 
-            mealplan.data[0].mealplans[0].total_carbohydrate,
-            mealplan.data[0].mealplans[0].total_protein,
-            mealplan.data[0].mealplans[0].total_calories,
-            mealplan.data[0].mealplans[0].total_vitamin_a,
-            mealplan.data[0].mealplans[0].total_vitamin_c,
-            mealplan.data[0].mealplans[0].total_vitamin_d,
-            mealplan.data[0].mealplans[0].total_vitamin_e,
-            mealplan.data[0].mealplans[0].total_vitamin_k,
-            mealplan.data[0].mealplans[0].total_thiamin,
-            mealplan.data[0].mealplans[0].total_riboflavin,
-            mealplan.data[0].mealplans[0].total_niacin,
-            mealplan.data[0].mealplans[0].total_vitamin_b6,
-            mealplan.data[0].mealplans[0].total_biotin,
-            mealplan.data[0].mealplans[0].total_folate,
-            mealplan.data[0].mealplans[0].total_vitamin_b12,
-            mealplan.data[0].mealplans[0].total_calcium,
-            mealplan.data[0].mealplans[0].total_copper,
-            mealplan.data[0].mealplans[0].total_fluoride,
-            mealplan.data[0].mealplans[0].total_iodine,
-            mealplan.data[0].mealplans[0].total_iron, 
-            mealplan.data[0].mealplans[0].total_magnesium, 
-            mealplan.data[0].mealplans[0].total_manganese, 
-            mealplan.data[0].mealplans[0].total_phosphorus, 
-            mealplan.data[0].mealplans[0].total_potassium, 
-            mealplan.data[0].mealplans[0].total_sodium, 
-            mealplan.data[0].mealplans[0].total_selenium, 
-            mealplan.data[0].mealplans[0].total_zinc
+            mealStat.data.totalMealStats[0].total_fat, 
+            mealStat.data.totalMealStats[0].total_carbohydrate,
+            mealStat.data.totalMealStats[0].total_protein,
+            mealStat.data.totalMealStats[0].total_calories,
+            mealStat.data.totalMealStats[0].total_vitamin_a,
+            mealStat.data.totalMealStats[0].total_vitamin_c,
+            mealStat.data.totalMealStats[0].total_vitamin_d,
+            mealStat.data.totalMealStats[0].total_vitamin_e,
+            mealStat.data.totalMealStats[0].total_vitamin_k,
+            mealStat.data.totalMealStats[0].total_thiamin,
+            mealStat.data.totalMealStats[0].total_riboflavin,
+            mealStat.data.totalMealStats[0].total_niacin,
+            mealStat.data.totalMealStats[0].total_vitamin_b6,
+            mealStat.data.totalMealStats[0].total_biotin,
+            mealStat.data.totalMealStats[0].total_folate,
+            mealStat.data.totalMealStats[0].total_vitamin_b12,
+            mealStat.data.totalMealStats[0].total_calcium,
+            mealStat.data.totalMealStats[0].total_copper,
+            mealStat.data.totalMealStats[0].total_fluoride,
+            mealStat.data.totalMealStats[0].total_iodine,
+            mealStat.data.totalMealStats[0].total_iron, 
+            mealStat.data.totalMealStats[0].total_magnesium, 
+            mealStat.data.totalMealStats[0].total_manganese, 
+            mealStat.data.totalMealStats[0].total_phosphorus, 
+            mealStat.data.totalMealStats[0].total_potassium, 
+            mealStat.data.totalMealStats[0].total_sodium, 
+            mealStat.data.totalMealStats[0].total_selenium, 
+            mealStat.data.totalMealStats[0].total_zinc
           )
+        for(let i = 0;i<meal.data.meals.length;i++) {
+            this.state.mealList.push(meal.data.meals[i])
+        }
+        this.forceUpdate();
     })).catch(error => {
         console.log('Axios error ALL componentDidMount EditMealplan.js', error)
     })
@@ -84,18 +90,18 @@ class Mealplan extends Component {
       this.state.mealList[id].carbs,
       this.state.mealList[id].protein,
       this.state.mealList[id].calories,
-      this.state.mealList[id].vitaminA,
-      this.state.mealList[id].vitaminC,
-      this.state.mealList[id].vitaminD,
-      this.state.mealList[id].vitaminE,
-      this.state.mealList[id].vitaminK,
+      this.state.mealList[id].vitamina,
+      this.state.mealList[id].vitaminc,
+      this.state.mealList[id].vitamind,
+      this.state.mealList[id].vitamine,
+      this.state.mealList[id].vitamink,
       this.state.mealList[id].thiamin,
       this.state.mealList[id].riboflavin,
       this.state.mealList[id].niacin,
-      this.state.mealList[id].vitaminB6,
+      this.state.mealList[id].vitaminb6,
       this.state.mealList[id].biotin,
       this.state.mealList[id].folate,
-      this.state.mealList[id].vitaminB12,
+      this.state.mealList[id].vitaminb12,
       this.state.mealList[id].calcium,
       this.state.mealList[id].copper,
       this.state.mealList[id].fluoride,
@@ -127,19 +133,19 @@ class Mealplan extends Component {
     const carbs = nutrients.filter(nutrient => nutrient.name === "Carbohydrate, by difference")[0].value
     const protein = nutrients.filter(nutrient => nutrient.name === "Protein")[0].value
     const calories = nutrients.filter(nutrient => nutrient.name === "Energy")[0].value
-    const vitaminA = nutrients.filter(nutrient => nutrient.name === "Vitamin A, RAE")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin A, RAE")[0].value : 0
-    const vitaminC = nutrients.filter(nutrient => nutrient.name === "Vitamin C, total ascorbic acid")[0]
+    const vitamina = nutrients.filter(nutrient => nutrient.name === "Vitamin A, RAE")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin A, RAE")[0].value : 0
+    const vitaminc = nutrients.filter(nutrient => nutrient.name === "Vitamin C, total ascorbic acid")[0]
     ? nutrients.filter(nutrient => nutrient.name === "Vitamin C, total ascorbic acid")[0].value : 0
-    const vitaminD = nutrients.filter(nutrient => nutrient.name === "Vitamin D")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin D")[0].value : 0
-    const vitaminE = nutrients.filter(nutrient => nutrient.name === "Vitamin E (alpha-tocopherol)")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin E (alpha-tocopherol)")[0].value : 0
-    const vitaminK = nutrients.filter(nutrient => nutrient.name === "Vitamin K (phylloquinone)")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin K (phylloquinone)")[0].value : 0
+    const vitamind = nutrients.filter(nutrient => nutrient.name === "Vitamin D")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin D")[0].value : 0
+    const vitamine = nutrients.filter(nutrient => nutrient.name === "Vitamin E (alpha-tocopherol)")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin E (alpha-tocopherol)")[0].value : 0
+    const vitamink = nutrients.filter(nutrient => nutrient.name === "Vitamin K (phylloquinone)")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin K (phylloquinone)")[0].value : 0
     const thiamin = nutrients.filter(nutrient => nutrient.name === "Thiamin")[0] ? nutrients.filter(nutrient => nutrient.name === "Thiamin")[0].value : 0
     const riboflavin = nutrients.filter(nutrient => nutrient.name === "Riboflavin")[0] ? nutrients.filter(nutrient => nutrient.name === "Riboflavin")[0].value : 0
     const niacin = nutrients.filter(nutrient => nutrient.name === "Niacin")[0] ? nutrients.filter(nutrient => nutrient.name === "Niacin")[0].value : 0
-    const vitaminB6 = nutrients.filter(nutrient => nutrient.name === "Vitamin B-6")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin B-6")[0].value : 0
+    const vitaminb6 = nutrients.filter(nutrient => nutrient.name === "Vitamin B-6")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin B-6")[0].value : 0
     const biotin = nutrients.filter(nutrient => nutrient.name === "Biotin")[0] ? nutrients.filter(nutrient => nutrient.name === "Biotin")[0].value : 0
     const folate = nutrients.filter(nutrient => nutrient.name === "Folate, total")[0] ? nutrients.filter(nutrient => nutrient.name === "Folate, total")[0].value : 0
-    const vitaminB12 = nutrients.filter(nutrient => nutrient.name === "Vitamin B-12")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin B-12")[0].value : 0
+    const vitaminb12 = nutrients.filter(nutrient => nutrient.name === "Vitamin B-12")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin B-12")[0].value : 0
     const calcium = nutrients.filter(nutrient => nutrient.name === "Calcium, Ca")[0] ? nutrients.filter(nutrient => nutrient.name === "Calcium, Ca")[0].value : 0
     const copper = nutrients.filter(nutrient => nutrient.name === "Copper, Cu")[0] ? nutrients.filter(nutrient => nutrient.name === "Copper, Cu")[0].value : 0
     const fluoride = nutrients.filter(nutrient => nutrient.name === "Fluoride, F")[0] ? nutrients.filter(nutrient => nutrient.name === "Fluoride, F")[0].value : 0
@@ -160,18 +166,18 @@ class Mealplan extends Component {
     carbs, 
     protein, 
     calories,
-    vitaminA,
-    vitaminC,
-    vitaminD,
-    vitaminE,
-    vitaminK,
+    vitamina,
+    vitaminc,
+    vitamind,
+    vitamine,
+    vitamink,
     thiamin,
     riboflavin,
     niacin,
-    vitaminB6,
+    vitaminb6,
     biotin,
     folate,
-    vitaminB12,
+    vitaminb12,
     calcium,
     copper,
     fluoride,
@@ -190,18 +196,18 @@ class Mealplan extends Component {
     carbs,
     protein,
     calories,
-    vitaminA,
-    vitaminC,
-    vitaminD,
-    vitaminE,
-    vitaminK,
+    vitamina,
+    vitaminc,
+    vitamind,
+    vitamine,
+    vitamink,
     thiamin,
     riboflavin,
     niacin,
-    vitaminB6,
+    vitaminb6,
     biotin,
     folate,
-    vitaminB12,
+    vitaminb12,
     calcium,
     copper,
     fluoride,
@@ -359,7 +365,7 @@ saveMealPlan() {
         <div className='section'>
           <p>Title: {this.state.title}</p>
           <input name="title" value={this.state.title} onChange={e=>this.handleInput(e)} placeholder="Insert title here"/>
-          <button onClick={() => this.state.title ? this.saveMealPlan() : window.alert("Please insert a title")}>Save Meal Plan</button>
+          <button onClick={() => this.state.title ? this.saveMealPlan() : window.alert("Please insert a title")}>Resave Meal Plan</button>
         </div>
       </div>
       </div>

@@ -1,4 +1,4 @@
-SELECT meals.id AS meal_id,* FROM meals
+SELECT  * FROM meals
 JOIN totalMealStats 
 ON meals.totalMealStat_id = totalMealStats.id 
-WHERE totalMealStats.id = ${titleId}
+WHERE totalMealStats.id = ${titleId};

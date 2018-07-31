@@ -40,18 +40,18 @@ class Mealplan extends Component {
       this.state.mealList[id].carbs,
       this.state.mealList[id].protein,
       this.state.mealList[id].calories,
-      this.state.mealList[id].vitaminA,
-      this.state.mealList[id].vitaminC,
-      this.state.mealList[id].vitaminD,
-      this.state.mealList[id].vitaminE,
-      this.state.mealList[id].vitaminK,
+      this.state.mealList[id].vitamina,
+      this.state.mealList[id].vitaminc,
+      this.state.mealList[id].vitamind,
+      this.state.mealList[id].vitamine,
+      this.state.mealList[id].vitamink,
       this.state.mealList[id].thiamin,
       this.state.mealList[id].riboflavin,
       this.state.mealList[id].niacin,
-      this.state.mealList[id].vitaminB6,
+      this.state.mealList[id].vitaminb6,
       this.state.mealList[id].biotin,
       this.state.mealList[id].folate,
-      this.state.mealList[id].vitaminB12,
+      this.state.mealList[id].vitaminb12,
       this.state.mealList[id].calcium,
       this.state.mealList[id].copper,
       this.state.mealList[id].fluoride,
@@ -83,19 +83,19 @@ class Mealplan extends Component {
     const carbs = nutrients.filter(nutrient => nutrient.name === "Carbohydrate, by difference")[0].value
     const protein = nutrients.filter(nutrient => nutrient.name === "Protein")[0].value
     const calories = nutrients.filter(nutrient => nutrient.name === "Energy")[0].value
-    const vitaminA = nutrients.filter(nutrient => nutrient.name === "Vitamin A, RAE")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin A, RAE")[0].value : 0
-    const vitaminC = nutrients.filter(nutrient => nutrient.name === "Vitamin C, total ascorbic acid")[0]
+    const vitamina = nutrients.filter(nutrient => nutrient.name === "Vitamin A, RAE")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin A, RAE")[0].value : 0
+    const vitaminc = nutrients.filter(nutrient => nutrient.name === "Vitamin C, total ascorbic acid")[0]
     ? nutrients.filter(nutrient => nutrient.name === "Vitamin C, total ascorbic acid")[0].value : 0
-    const vitaminD = nutrients.filter(nutrient => nutrient.name === "Vitamin D")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin D")[0].value : 0
-    const vitaminE = nutrients.filter(nutrient => nutrient.name === "Vitamin E (alpha-tocopherol)")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin E (alpha-tocopherol)")[0].value : 0
-    const vitaminK = nutrients.filter(nutrient => nutrient.name === "Vitamin K (phylloquinone)")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin K (phylloquinone)")[0].value : 0
+    const vitamind = nutrients.filter(nutrient => nutrient.name === "Vitamin D")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin D")[0].value : 0
+    const vitamine = nutrients.filter(nutrient => nutrient.name === "Vitamin E (alpha-tocopherol)")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin E (alpha-tocopherol)")[0].value : 0
+    const vitamink = nutrients.filter(nutrient => nutrient.name === "Vitamin K (phylloquinone)")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin K (phylloquinone)")[0].value : 0
     const thiamin = nutrients.filter(nutrient => nutrient.name === "Thiamin")[0] ? nutrients.filter(nutrient => nutrient.name === "Thiamin")[0].value : 0
     const riboflavin = nutrients.filter(nutrient => nutrient.name === "Riboflavin")[0] ? nutrients.filter(nutrient => nutrient.name === "Riboflavin")[0].value : 0
     const niacin = nutrients.filter(nutrient => nutrient.name === "Niacin")[0] ? nutrients.filter(nutrient => nutrient.name === "Niacin")[0].value : 0
-    const vitaminB6 = nutrients.filter(nutrient => nutrient.name === "Vitamin B-6")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin B-6")[0].value : 0
+    const vitaminb6 = nutrients.filter(nutrient => nutrient.name === "Vitamin B-6")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin B-6")[0].value : 0
     const biotin = nutrients.filter(nutrient => nutrient.name === "Biotin")[0] ? nutrients.filter(nutrient => nutrient.name === "Biotin")[0].value : 0
     const folate = nutrients.filter(nutrient => nutrient.name === "Folate, total")[0] ? nutrients.filter(nutrient => nutrient.name === "Folate, total")[0].value : 0
-    const vitaminB12 = nutrients.filter(nutrient => nutrient.name === "Vitamin B-12")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin B-12")[0].value : 0
+    const vitaminb12 = nutrients.filter(nutrient => nutrient.name === "Vitamin B-12")[0] ? nutrients.filter(nutrient => nutrient.name === "Vitamin B-12")[0].value : 0
     const calcium = nutrients.filter(nutrient => nutrient.name === "Calcium, Ca")[0] ? nutrients.filter(nutrient => nutrient.name === "Calcium, Ca")[0].value : 0
     const copper = nutrients.filter(nutrient => nutrient.name === "Copper, Cu")[0] ? nutrients.filter(nutrient => nutrient.name === "Copper, Cu")[0].value : 0
     const fluoride = nutrients.filter(nutrient => nutrient.name === "Fluoride, F")[0] ? nutrients.filter(nutrient => nutrient.name === "Fluoride, F")[0].value : 0
@@ -116,18 +116,18 @@ class Mealplan extends Component {
     carbs, 
     protein, 
     calories,
-    vitaminA,
-    vitaminC,
-    vitaminD,
-    vitaminE,
-    vitaminK,
+    vitamina,
+    vitaminc,
+    vitamind,
+    vitamine,
+    vitamink,
     thiamin,
     riboflavin,
     niacin,
-    vitaminB6,
+    vitaminb6,
     biotin,
     folate,
-    vitaminB12,
+    vitaminb12,
     calcium,
     copper,
     fluoride,
@@ -146,18 +146,18 @@ class Mealplan extends Component {
     carbs,
     protein,
     calories,
-    vitaminA,
-    vitaminC,
-    vitaminD,
-    vitaminE,
-    vitaminK,
+    vitamina,
+    vitaminc,
+    vitamind,
+    vitamine,
+    vitamink,
     thiamin,
     riboflavin,
     niacin,
-    vitaminB6,
+    vitaminb6,
     biotin,
     folate,
-    vitaminB12,
+    vitaminb12,
     calcium,
     copper,
     fluoride,
