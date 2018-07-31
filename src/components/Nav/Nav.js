@@ -10,20 +10,17 @@ class Nav extends Component {
     super();
     this.state = {
       username: '',
-      profilePicture: '',
-      userId: 0,
       showMenu: false
     }
   }
 
   componentDidMount(){
     axios.get('/api/user-data').then(response => {
-      console.log('response',response)
       this.setState({
         username: response.data.username,
-        profilePicture: response.data.profilePicture,
-        userId: response.data.userId
       })
+    }).catch(error => {
+      console.log('Axios error GET with componentDidMount on Nav.js', error)
     })
   }
 
@@ -36,8 +33,6 @@ class Nav extends Component {
     axios.post('/api/auth/logout').then(response => {
       this.setState({
         username: '',
-        profilePicture: '',
-        userId: ''
       })
       window.alert('Successfully logged out')
     }).catch(error => console.log('error',error))
@@ -56,7 +51,7 @@ class Nav extends Component {
             <li><NavLink to={username ? '/profile' : '/authentication'} className="navMenuOption">Profile</NavLink></li>
             </ul>
             {username ? <Link to='/'><button onClick={()=>this.logout()}> Logout</button></Link> : <button onClick={() => {this.login()}}>Login</button>}
-            <p>{this.state.username ? "Welcome: " + this.state.username : "No user is logged in"}</p>
+            <p>{username ? "Welcome: " + username : "No user is logged in"}</p>
       </div>
       );
     }

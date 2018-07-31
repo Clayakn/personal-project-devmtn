@@ -24,7 +24,7 @@ id SERIAL PRIMARY KEY
 , total_vitamin_e DECIMAL
 , total_vitamin_k DECIMAL
 , total_thiamin DECIMAL
-, total_riobflavin DECIMAL
+, total_riboflavin DECIMAL
 , total_niacin DECIMAL
 , total_vitamin_b6 DECIMAL
 , total_biotin DECIMAL
@@ -60,7 +60,7 @@ id SERIAL PRIMARY KEY
 , vitamin_e DECIMAL
 , vitamin_k DECIMAL
 , thiamin DECIMAL
-, riobflavin DECIMAL
+, riboflavin DECIMAL
 , niacin DECIMAL
 , vitamin_b6 DECIMAL
 , biotin DECIMAL
@@ -78,7 +78,7 @@ id SERIAL PRIMARY KEY
 , sodium DECIMAL
 , selenium DECIMAL
 , zinc DECIMAL
-, totalMealStats_id INTEGER REFERENCES totalMealStats (id)
+, totalMealStat_id INTEGER REFERENCES totalMealStats (id)
 );
 
 -- Testing Data
@@ -89,12 +89,12 @@ VALUES
 (123, 'gmail@andrew.com', 'Andrew', 'www.google.com');
 
 INSERT INTO totalMealStats
-(title, total_fat, total_carbohydrate, total_protein, total_calories, total_vitamin_a, total_vitamin_c, total_vitamin_d, total_vitamin_e, total_vitamin_k, total_thiamin, total_riobflavin, total_niacin, total_vitamin_b6, total_biotin, total_folate, total_vitamin_b12, total_calcium, total_copper, total_fluoride, total_iodine, total_iron, total_magnesium, total_manganese, total_phosphorus, total_potassium, total_sodium, total_selenium, total_zinc, user_id)
+(title, total_fat, total_carbohydrate, total_protein, total_calories, total_vitamin_a, total_vitamin_c, total_vitamin_d, total_vitamin_e, total_vitamin_k, total_thiamin, total_riboflavin, total_niacin, total_vitamin_b6, total_biotin, total_folate, total_vitamin_b12, total_calcium, total_copper, total_fluoride, total_iodine, total_iron, total_magnesium, total_manganese, total_phosphorus, total_potassium, total_sodium, total_selenium, total_zinc, user_id)
 VALUES 
 ('Meal Plan 1',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1);
 
 INSERT INTO meals
-(meal_name, fat, carbohydrate, protein, calories, vitamin_a, vitamin_c, vitamin_d, vitamin_e, vitamin_k, thiamin, riobflavin, niacin, vitamin_b6, biotin, folate, vitamin_b12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, sodium, selenium, zinc, totalMealStats_id)
+(meal_name, fat, carbohydrate, protein, calories, vitamin_a, vitamin_c, vitamin_d, vitamin_e, vitamin_k, thiamin, riboflavin, niacin, vitamin_b6, biotin, folate, vitamin_b12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, sodium, selenium, zinc, totalMealStats_id)
 VALUES 
 ('Ultimate Sandwich',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1);
 

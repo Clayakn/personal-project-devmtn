@@ -7,7 +7,7 @@ module.exports = {
             client_secret: process.env.AUTH0_CLIENT_SECRET,
             code: req.query.code,
             grant_type: 'authorization_code',
-            redirect_uri: `http://${req.headers.host}/auth/callback`
+            redirect_uri: `https://${req.headers.host}/auth/callback`
         };
 
         const dbInstance = req.app.get('db');
@@ -144,15 +144,25 @@ module.exports = {
         .then(users => {
             dbInstance.read_totalMealStat_title([users[0].id])
         .then(titles => {
-            res.status(200).json(
-            {   titles,
+            res.status(200).json([{
+                titles,
                 username: req.session.user.username,
                 profilePicture: req.session.user.profile_pic
-            })
+            }])
         })
         }).catch(error => {
             console.log('Controller error on readUserAndTitle', error)
             res.status(500).json({message: 'Server error. See server terminal'})
-        })        
-    }
+        })
+    },
+    readMealPlan(req, res) {
+        const { titleId } = req.params
+        const dbInstance = req.app.get('db')
+        dbInstance.read_totalMealStat_meals({titleId})
+        .then(mealplans => {
+            res.status(200).json([{
+                mealplans
+            }])
+        })
+    }        
 }

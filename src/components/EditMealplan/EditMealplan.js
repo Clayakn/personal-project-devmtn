@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './Mealplan.css';
+import './EditMealplan.css';
 import data from '../../foodData.json';
 import axios from 'axios';
 import Auth from '../Auth/Auth';
 import { connect } from 'react-redux';
 import { addNutrients, subtractNutrients, clearNutrients } from '../../redux/reducer';
+
 
 
 class Mealplan extends Component {
@@ -14,7 +15,7 @@ class Mealplan extends Component {
       username: '',
       mealList: [],
       title: '',
-      showFoodBank: false
+      showFoodBank: false,
     }
     this.getFood = this.getFood.bind(this)
     this.removeFood = this.removeFood.bind(this)
@@ -24,12 +25,55 @@ class Mealplan extends Component {
 
   // Fetch user to verify login
   componentDidMount(){
-    axios.get('/api/user-data').then(response => {
-      this.setState({
-        username: response.data.username,
-      })
-    }).catch(error => {
-      console.log('Axios error GET with componentDidMount on Mealplan.js', error)
+    const mealplanId = this.props.mealplanId
+    function getUser() {
+       return axios.get('/api/user-data');
+    }
+
+    function fetchMealplan(){
+        return axios.get(`/api/mealplan/${mealplanId}`);
+    }
+
+    axios.all([getUser(),fetchMealplan()]).then(axios.spread((user,mealplan) => {
+        console.log('mealplan.data',mealplan.data)
+        console.log('mealplan.data[0].mealplans',mealplan.data[0].mealplans )
+        this.setState({
+            username: user.data.username,
+            title: mealplan.data[0].mealplans[0].title
+        })
+        this.props.clearNutrients();
+        this.props.addNutrients(
+            mealplan.data[0].mealplans[0].total_fat, 
+            mealplan.data[0].mealplans[0].total_carbohydrate,
+            mealplan.data[0].mealplans[0].total_protein,
+            mealplan.data[0].mealplans[0].total_calories,
+            mealplan.data[0].mealplans[0].total_vitamin_a,
+            mealplan.data[0].mealplans[0].total_vitamin_c,
+            mealplan.data[0].mealplans[0].total_vitamin_d,
+            mealplan.data[0].mealplans[0].total_vitamin_e,
+            mealplan.data[0].mealplans[0].total_vitamin_k,
+            mealplan.data[0].mealplans[0].total_thiamin,
+            mealplan.data[0].mealplans[0].total_riboflavin,
+            mealplan.data[0].mealplans[0].total_niacin,
+            mealplan.data[0].mealplans[0].total_vitamin_b6,
+            mealplan.data[0].mealplans[0].total_biotin,
+            mealplan.data[0].mealplans[0].total_folate,
+            mealplan.data[0].mealplans[0].total_vitamin_b12,
+            mealplan.data[0].mealplans[0].total_calcium,
+            mealplan.data[0].mealplans[0].total_copper,
+            mealplan.data[0].mealplans[0].total_fluoride,
+            mealplan.data[0].mealplans[0].total_iodine,
+            mealplan.data[0].mealplans[0].total_iron, 
+            mealplan.data[0].mealplans[0].total_magnesium, 
+            mealplan.data[0].mealplans[0].total_manganese, 
+            mealplan.data[0].mealplans[0].total_phosphorus, 
+            mealplan.data[0].mealplans[0].total_potassium, 
+            mealplan.data[0].mealplans[0].total_sodium, 
+            mealplan.data[0].mealplans[0].total_selenium, 
+            mealplan.data[0].mealplans[0].total_zinc
+          )
+    })).catch(error => {
+        console.log('Axios error ALL componentDidMount EditMealplan.js', error)
     })
   }
 
@@ -328,7 +372,7 @@ saveMealPlan() {
 }
 
 const mapStateToProps = state => {
-  const { totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc} = state
+  const { totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc, mealplanId} = state
  return { 
   totalFat, 
   totalCarbs, 
@@ -357,7 +401,8 @@ const mapStateToProps = state => {
   totalPotassium, 
   totalSodium, 
   totalSelenium, 
-  totalZinc
+  totalZinc,
+  mealplanId
   } 
 }
 

@@ -26,19 +26,21 @@ const initialState = {
     totalPotassium: 0, 
     totalSodium: 0, 
     totalSelenium: 0, 
-    totalZinc: 0
+    totalZinc: 0,
+    mealplanId: ''
 }
 
 
+// const UPDATE_USER_INFO = 'UPDATE_USER_INFO'
 const ADD_NUTRIENTS = 'ADD_NUTRIENTS'
 const SUBTRACT_NUTRIENTS = 'SUBTRACT_NUTRIENTS'
-const UPDATE_USER_INFO = 'UPDATE_USER_INFO'
 const CLEAR_NUTRIENTS = 'CLEAR_NUTRIENTS'
+const UPDATE_MEALPLAN_ID = 'UPDATE_MEALPLAN_ID'
 
 export default function reducer(state = initialState, action){
     switch(action.type) {
-        case UPDATE_USER_INFO:
-            return Object.assign({}, state, action.payload)
+        // case UPDATE_USER_INFO:
+        //     return Object.assign({}, state, action.payload)
         case ADD_NUTRIENTS:
             const addPayload = {
                 totalFat: (+state.totalFat + +action.payload.fat),
@@ -105,20 +107,20 @@ export default function reducer(state = initialState, action){
             return Object.assign({}, state, subtractPayload)
         case CLEAR_NUTRIENTS:
             return Object.assign({}, state, action.payload)
+        case UPDATE_MEALPLAN_ID:
+            return Object.assign({}, state, action.payload)
         default: return state
     }
 }
 
-export function updateUser(username, profilePicture, userId){
-    return {
-        type: UPDATE_USER_INFO,
-        payload: {
-            username, 
-            profilePicture,
-            userId
-        }
-    }
-}
+// export function updateUser(user){
+//     return {
+//         type: UPDATE_USER_INFO,
+//         payload: {
+//             user
+//         }
+//     }
+// }
 
 export function addNutrients(fat, carbs, protein, calories, vitaminA, vitaminC, vitaminD, vitaminE, vitaminK, thiamin, riboflavin, niacin, vitaminB6, biotin, folate, vitaminB12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, sodium, selenium, zinc){
     return {
@@ -224,6 +226,15 @@ export function clearNutrients(){
             totalSodium: 0, 
             totalSelenium: 0, 
             totalZinc: 0
+        }
+    }
+}
+
+export function updateMealplanId(mealplanId) {
+    return {
+        type: UPDATE_MEALPLAN_ID,
+        payload: {
+            mealplanId
         }
     }
 }

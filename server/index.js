@@ -51,7 +51,10 @@ function checkLoggedIn(req, res, next) {
 app.post('/api/auth/logout', uC.logout);
 
 // Server request to create Meal Plan
-app.post('/api/mealplan', uC.createMealPlan)
+app.post('/api/mealplan', uC.createMealPlan);
+
+// Server request to read Meal Plan by titleId from totalMealStats table
+app.get('/api/mealplan/:titleId', uC.readMealPlan);
 
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));
