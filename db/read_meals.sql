@@ -1,6 +1,6 @@
 
 SELECT 
-meal_name AS mealName
+meal_name AS name
 , fat 
 , carbohydrate AS carbs
 , protein 
@@ -30,4 +30,4 @@ meal_name AS mealName
 , selenium 
 , zinc 
 FROM meals
-WHERE totalMealStat_id = ${mealplanId};
+WHERE totalmealstat_id = ${mealplanId};

@@ -3,6 +3,7 @@ import './EditMealplan.css';
 import data from '../../foodData.json';
 import axios from 'axios';
 import Auth from '../Auth/Auth';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNutrients, subtractNutrients, clearNutrients } from '../../redux/reducer';
 
@@ -20,7 +21,7 @@ class Mealplan extends Component {
     this.getFood = this.getFood.bind(this)
     this.removeFood = this.removeFood.bind(this)
     this.handleInput = this.handleInput.bind(this)
-    this.saveMealPlan = this.saveMealPlan.bind(this)
+    this.resaveMealplan = this.resaveMealplan.bind(this)
   }
 
   // Fetch user to verify login
@@ -161,7 +162,7 @@ class Mealplan extends Component {
   
   
   this.state.mealList.push({
-    mealName: response.data.report.food.name,
+    name: response.data.report.food.name,
     fat, 
     carbs, 
     protein, 
@@ -235,10 +236,11 @@ class Mealplan extends Component {
  }
 
  // Axios post to save Meal List + Meal Plan into DB
-saveMealPlan() {
+resaveMealplan() {
+  const mealplanId = this.props.mealplanId
   const { title, mealList } = this.state
   const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc} = this.props
-  axios.post('/api/mealplan', {
+  axios.put(`/api/put_mealplan/${mealplanId}`, {
     totalFat,
     totalCarbs,
     totalProtein,
@@ -272,13 +274,14 @@ saveMealPlan() {
     .then( response => {
       this.setState({title: '', mealList: []})
       this.props.clearNutrients();
-      window.alert('Meal Plan successfully created, Check your profile to see your created meal plans')
+      window.alert('Meal Plan successfully saved, Check your profile to see your saved meal plans')
     })
     .catch(error => console.log('Axios error POST on saveMealPlan', error))
 }
    
 
   render() {
+    console.log('this.state.mealList', this.state.mealList)
     const displayFoodList = this.state.showFoodBank == true ? data.map((food, i) => {
       const foodId = food.ndbno
       return (
@@ -292,7 +295,7 @@ saveMealPlan() {
     const displayMealList = this.state.mealList ? this.state.mealList.map((food, i) => {
       return (
         <div key={i}>
-        <p>{food.mealName}</p>
+        <p>{food.name}</p>
         <p>Fat: {food.fat}g</p>
         <p>Carbs: {food.carbs}g</p>
         <p>Protein: {food.protein}g</p>
@@ -365,7 +368,7 @@ saveMealPlan() {
         <div className='section'>
           <p>Title: {this.state.title}</p>
           <input name="title" value={this.state.title} onChange={e=>this.handleInput(e)} placeholder="Insert title here"/>
-          <button onClick={() => this.state.title ? this.saveMealPlan() : window.alert("Please insert a title")}>Resave Meal Plan</button>
+          <Link to='/profile'><button onClick={() => this.state.title ? this.resaveMealplan() : window.alert("Please insert a title")}>Resave Meal Plan</button></Link>
         </div>
       </div>
       </div>

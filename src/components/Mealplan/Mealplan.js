@@ -111,7 +111,7 @@ class Mealplan extends Component {
   
   
   this.state.mealList.push({
-    mealName: response.data.report.food.name,
+    name: response.data.report.food.name,
     fat, 
     carbs, 
     protein, 
@@ -242,7 +242,7 @@ saveMealPlan() {
     const displayMealList = this.state.mealList ? this.state.mealList.map((food, i) => {
       return (
         <div key={i}>
-        <p>{food.mealName}</p>
+        <p>{food.name}</p>
         <p>Fat: {food.fat}g</p>
         <p>Carbs: {food.carbs}g</p>
         <p>Protein: {food.protein}g</p>

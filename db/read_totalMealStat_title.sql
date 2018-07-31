@@ -1,3 +1,3 @@
 SELECT title, id 
-FROM totalMealStats
+FROM totalmealstats
 WHERE user_id = $1;

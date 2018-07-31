@@ -17,7 +17,7 @@ module.exports = {
     readTotalMealStat: (req, res) => {
         const dbInstance = req.app.get('db')
         const { mealplanId } = req.params
-        dbInstance.read_totalMealStat({mealplanId})
+        dbInstance.read_totalmealstat({mealplanId})
         .then(totalMealStats => {
             res.status(200).json({totalMealStats})
         })

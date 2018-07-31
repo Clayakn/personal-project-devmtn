@@ -51,16 +51,23 @@ function checkLoggedIn(req, res, next) {
 app.post('/api/auth/logout', uC.logout);
 
 // Server request to create Meal Plan
-app.post('/api/mealplan', uC.createMealPlan);
+app.post('/api/mealplan', uC.createMealplan);
+
+// Server request to update totalMealStats and meals based on mealplanId
+app.put('/api/put_mealplan/:mealplanId', uC.updateMealplan)
+
+// Server request to delete totalMealStats and meals based on mealplanId
+app.delete('/api/delete_mealplan/:mealplanId', uC.deleteMealplan)
 
 // Server request to read Meal Plan by titleId from totalMealStats table
-app.get('/api/mealplan/:titleId', uC.readMealPlan);
+app.get('/api/mealplan/:titleId', uC.readMealplan);
 
 // Server request to read meals based on mealplanId 
 app.get('/api/meals/:mealplanId', c.readMeals);
 
 // Server request to read totalMealStat based on mealplanId
 app.get('/api/totalMealStats/:mealplanId', c.readTotalMealStat);
+
 
 
 app.get('*', (req, res)=>{

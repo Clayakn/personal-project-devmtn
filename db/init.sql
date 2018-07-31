@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS meals CASCADE;
-DROP TABLE IF EXISTS totalMealStats CASCADE;
+DROP TABLE IF EXISTS totalmealstats CASCADE;
 
 
 CREATE TABLE users (
@@ -11,7 +11,7 @@ id SERIAL PRIMARY KEY
 , profile_pic TEXT
 );
 
-CREATE TABLE totalMealStats (
+CREATE TABLE totalmealstats (
 id SERIAL PRIMARY KEY
 , title text NOT NULL 
 , total_fat DECIMAL
@@ -78,9 +78,12 @@ id SERIAL PRIMARY KEY
 , sodium DECIMAL
 , selenium DECIMAL
 , zinc DECIMAL
-, totalMealStat_id INTEGER REFERENCES totalMealStats (id)
+, totalmealstat_id INTEGER REFERENCES totalmealstats (id)
 );
 
+SELECT * FROM users;
+SELECT * FROM totalmealstats;
+SELECT * FROM meals;
 -- Testing Data
 
 INSERT INTO users 
@@ -94,7 +97,7 @@ VALUES
 ('Meal Plan 1',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1);
 
 INSERT INTO meals
-(meal_name, fat, carbohydrate, protein, calories, vitamin_a, vitamin_c, vitamin_d, vitamin_e, vitamin_k, thiamin, riboflavin, niacin, vitamin_b6, biotin, folate, vitamin_b12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, sodium, selenium, zinc, totalMealStats_id)
+(meal_name, fat, carbohydrate, protein, calories, vitamin_a, vitamin_c, vitamin_d, vitamin_e, vitamin_k, thiamin, riboflavin, niacin, vitamin_b6, biotin, folate, vitamin_b12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, sodium, selenium, zinc, totalmealstat_id)
 VALUES 
 ('Ultimate Sandwich',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1);
 
