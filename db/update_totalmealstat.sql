@@ -28,5 +28,5 @@ SET title = ${title}
 , total_sodium = ${totalSodium} 
 , total_selenium = ${totalSelenium}
 , total_zinc  = ${totalZinc}
-WHERE id = ${mealplanId}
+WHERE id = ${mealplanId};
 
