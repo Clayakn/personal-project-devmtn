@@ -60,7 +60,7 @@ module.exports = {
         const dbInstance = req.app.get('db')
         const userId = req.session.user.id
         const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc, title, mealList} = req.body
-        dbInstance.read_user(userId)
+        dbInstance.read_user({userId})
         .then(users => {
         dbInstance.create_totalmealstat({
             title,
@@ -141,7 +141,7 @@ module.exports = {
     readUserAndTitle: (req, res) => {
         const dbInstance = req.app.get('db')
         const userId = req.session.user.id
-        dbInstance.read_user(userId)
+        dbInstance.read_user({userId})
         .then(users => {
             dbInstance.read_totalmealstat_title([users[0].id])
         .then(titles => {

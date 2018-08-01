@@ -1,3 +1,3 @@
 SELECT * FROM users
-WHERE id = ${userId} 
+WHERE auth0_id = $1 
 LIMIT 1;
