@@ -6,7 +6,7 @@ class Auth extends Component {
     render(){
         return(
             <div>
-            <p>Please login/register in order to access Meal/Profile</p>
+            <h1>Please login/register in order to access Meal/Profile</h1>
             </div>
         )
     }
