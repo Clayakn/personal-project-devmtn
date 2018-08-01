@@ -54,7 +54,8 @@ module.exports = {
     },
     logout: (req, res) => {
         req.session.destroy();
-        res.redirect('/');
+        res.status(200).send('Successfully logged out')
+        redirect('/');
     },
     createMealplan: (req, res) => {
         const dbInstance = req.app.get('db')

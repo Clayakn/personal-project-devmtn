@@ -59,6 +59,7 @@ class Profile extends Component {
         this.setState({
             mealplans: ''
         })
+        this.forceUpdate();
         })
         .catch(error => console.log('Axios error DELETE deleteMealplan in Profile.js',error))
     }
