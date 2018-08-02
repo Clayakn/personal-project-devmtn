@@ -130,7 +130,7 @@ module.exports = {
          }))
         })
         .then(response => {
-            res.status(200).send('Successfully created Mealplan')
+            res.status(201).send('Successfully created Mealplan')
         })   
         })
         .catch(error => {
@@ -255,7 +255,10 @@ module.exports = {
         .then(meals => {
         dbInstance.delete_totalmealstat({mealplanId})
         .then(mealStats => {
-            res.status(200).send('Successfully deleted Mealplan')
+            res.status(200).json({
+                mealStats,
+                message: 'Successfully deleted Mealplan'
+            })
         })
         }).catch(error => {
             console.log('Controller error on deleteMealplan', error)
