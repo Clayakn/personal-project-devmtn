@@ -1,0 +1,9 @@
+div {
+    p {
+        font-size: 14px;
+    }
+}
+
+.home_circle {
+    @extend %circle;
+}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Mealplan.css';
 import data from '../../foodData.json';
 import axios from 'axios';
 import Auth from '../Auth/Auth';

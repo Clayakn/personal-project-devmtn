@@ -1,0 +1,45 @@
+@import '../variables';
+
+.nav_container {
+    background-color: $base-color;
+    font-size: 12px;
+    // color: $text-color;
+}
+
+.nav_tablist {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
+  height: 40px;
+  width: 120px;
+  border: 1px solid black;
+}
+
+.nav_tabButton2 {
+  padding-bottom: 2px;
+ }
+
+.navMenuList {
+    height: 0;
+    margin: 0;
+    transition: .5s;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .open {
+    margin-top: 15px;
+    opacity: 1;
+    height: 180px;
+  
+  }
+  
+  .navMenuOption {
+    color: $text-color;
+    text-decoration: none;
+  }
+  
+  li {
+  list-style-type: none;
+  }

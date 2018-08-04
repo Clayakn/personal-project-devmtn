@@ -1,0 +1,248 @@
+{
+	"variables": [],
+	"info": {
+		"name": "personal-project-devmtn",
+		"_postman_id": "00f6895f-d56f-477f-8290-e3404ddddb08",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mealplan",
+			"description": "",
+			"item": [
+				{
+					"name": "GET Mealplan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"",
+									"tests[\"Response time is less than 400ms\"] = responseTime < 400;",
+									"",
+									"var data = JSON.parse(responseBody);",
+									"const isArray = Array.isArray( data );",
+									"tests[\"responseBody contains mealplans\"] = responseBody.has(\"mealplans\");",
+									"tests[\" responseBody returns an Array \" ] = isArray;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/api/mealplan/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "POST Mealplan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Successful POST request\"] = responseCode.code === 200 || responseCode.code === 201 || responseCode.code === 202;",
+									"",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"",
+									"tests[\"Response time is less than 400ms\"] = responseTime < 400;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/api/mealplan",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {  \n  \"totalFat\": 5,\n    \"totalCarbs\": 5,\n    \"totalProtein\": 5,\n    \"totalCalories\": 5,\n    \"totalVitaminA\": 5,\n    \"totalVitaminC\": 5,\n    \"totalVitaminD\": 5,\n    \"totalVitaminE\": 5,\n    \"totalVitaminK\": 5, \n    \"totalThiamin\": 5, \n    \"totalRiboflavin\": 5,\n    \"totalNiacin\": 5,\n    \"totalVitaminB6\": 5, \n    \"totalBiotin\": 5,\n    \"totalFolate\": 5,\n    \"totalVitaminB12\": 5, \n    \"totalCalcium\": 5, \n    \"totalCopper\": 5, \n    \"totalFluoride\": 5,\n    \"totalIodine\": 5, \n    \"totalIron\": 5,\n    \"totalMagnesium\": 5,\n    \"totalManganese\": 5, \n    \"totalPhosphorus\": 5,\n    \"totalPotassium\": 5,\n    \"totalSodium\": 5, \n    \"totalSelenium\": 5,\n    \"totalZinc\": 5, \n    \"title\": \"Postman Test\",\n    \"mealList\": [{\n      \"name\": \"meal 1\",\n        \"fat\": 4,\n        \"carbs\": 4,\n        \"protein\": 4, \n        \"calories\": 4,\n        \"vitamina\": 4,\n        \"vitaminc\": 4,\n        \"vitamind\": 4,\n        \"vitamine\": 4,\n        \"vitamink\": 4,\n        \"thiamin\": 4,\n        \"riboflavin\": 4,\n        \"niacin\": 4,\n        \"vitaminb6\": 4,\n        \"biotin\": 4,\n        \"folate\": 4,\n        \"vitaminb12\": 4,\n        \"calcium\": 4,\n        \"copper\": 4,\n        \"fluoride\": 4,\n        \"iodine\": 4,\n        \"iron\": 4,\n        \"magnesium\": 4,\n        \"manganese\": 4,\n        \"phosphorus\": 4,\n        \"potassium\": 4,\n        \"sodium\": 4,\n        \"selenium\": 4,\n        \"zinc\": 4\n    }]\n}"
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Mealplan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"",
+									"tests[\"Response time is less than 400ms\"] = responseTime < 400;",
+									"",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/api/put_mealplan/2",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {  \n  \"totalFat\": 9,\n    \"totalCarbs\": 9,\n    \"totalProtein\": 9,\n    \"totalCalories\": 9,\n    \"totalVitaminA\": 9,\n    \"totalVitaminC\": 9,\n    \"totalVitaminD\": 9,\n    \"totalVitaminE\": 9,\n    \"totalVitaminK\": 9, \n    \"totalThiamin\": 9, \n    \"totalRiboflavin\": 9,\n    \"totalNiacin\": 9,\n    \"totalVitaminB6\": 9, \n    \"totalBiotin\": 9,\n    \"totalFolate\": 9,\n    \"totalVitaminB12\": 9, \n    \"totalCalcium\": 9, \n    \"totalCopper\": 9, \n    \"totalFluoride\": 9,\n    \"totalIodine\": 9, \n    \"totalIron\": 9,\n    \"totalMagnesium\": 9,\n    \"totalManganese\": 9, \n    \"totalPhosphorus\": 9,\n    \"totalPotassium\": 9,\n    \"totalSodium\": 9, \n    \"totalSelenium\": 9,\n    \"totalZinc\": 9, \n    \"title\": \"Postman Test\",\n    \"mealList\": [{\n      \"name\": \"meal 1\",\n        \"fat\": 3,\n        \"carbs\": 3,\n        \"protein\": 3, \n        \"calories\": 3,\n        \"vitamina\": 3,\n        \"vitaminc\": 3,\n        \"vitamind\": 3,\n        \"vitamine\": 3,\n        \"vitamink\": 3,\n        \"thiamin\": 3,\n        \"riboflavin\": 3,\n        \"niacin\": 3,\n        \"vitaminb6\": 3,\n        \"biotin\": 3,\n        \"folate\": 3,\n        \"vitaminb12\": 3,\n        \"calcium\": 3,\n        \"copper\": 3,\n        \"fluoride\": 3,\n        \"iodine\": 3,\n        \"iron\": 3,\n        \"magnesium\": 3,\n        \"manganese\": 3,\n        \"phosphorus\": 3,\n        \"potassium\": 3,\n        \"sodium\": 3,\n        \"selenium\": 3,\n        \"zinc\": 3\n    }]\n}"
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Mealplan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+									"",
+									"tests[\"Response time is less than 400ms\"] = responseTime < 400;",
+									"",
+									"",
+									"const data = JSON.parse(responseBody);",
+									"const isEmpty = ( data.mealStats.length === 0 );",
+									"",
+									"tests[\" responseBody mealStats is empty \"] = isEmpty;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/api/delete_mealplan/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET foods API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"tests[\"Response time is less than 400ms\"] = responseTime < 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://api.nal.usda.gov/ndb/reports/?ndbno=14158&type=f&format=json&api_key=jJwYb4N4BKJEW9jEXU8NbDXltGlKqIqTtcTcJ1Rz",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nal",
+						"usda",
+						"gov"
+					],
+					"path": [
+						"ndb",
+						"reports",
+						""
+					],
+					"query": [
+						{
+							"key": "ndbno",
+							"value": "14158",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "type",
+							"value": "f",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "format",
+							"value": "json",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "api_key",
+							"value": "process.env.REACT_APP_API_KEY",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Logout User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"tests[\"Response time is less than 400ms\"] = responseTime < 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/api/auth/logout",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}

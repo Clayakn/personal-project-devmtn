@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Icon from 'react-icons-kit';
 import { menu } from 'react-icons-kit/iconic/menu';
+import { home } from 'react-icons-kit/iconic/home';
 import axios from 'axios';
-import './Nav.css';
 
 class Nav extends Component {
   constructor(){
@@ -41,16 +41,25 @@ class Nav extends Component {
   render() {
     const { showMenu, username } = this.state
     return (
-      <div className='navContainer'>
-        <button className="menuButton" onClick={() => this.setState({showMenu: !showMenu})}><Icon icon={menu}/></button>
+      <div className='nav_container'>
+        <div className='nav_tablist'>
+          <div>
+          <Link to='/' className="nav_tabButton1"><Icon size={20} icon={home}/></Link>
+          </div>
+          <div>
+          <Icon size={17} className="nav_tabButton2" onClick={() => this.setState({showMenu: !showMenu})} icon={menu}/>
+          </div>
+          <div>
+          {username ? <Link to='/'><button onClick={()=>this.logout()}> Logout</button></Link> : <button onClick={() => {this.login()}}>Login</button>}
+          </div>
+        </div>
           <ul className={showMenu ? "navMenuList open" : "navMenuList"}>
-            <li><NavLink to='/' className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Home</NavLink></li>
+            <li><NavLink to='/glossary' className="navMenuOption">Glossary</NavLink></li>
             <br/>
             <li><NavLink to={username ? '/mealplan'  : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Meal Plan</NavLink></li>
             <br/>
             <li><NavLink to={username ? '/profile' : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Profile</NavLink></li>
             </ul>
-            {username ? <Link to='/'><button onClick={()=>this.logout()}> Logout</button></Link> : <button onClick={() => {this.login()}}>Login</button>}
             <p>{username ? "Welcome: " + username : "No user is logged in"}</p>
       </div>
       );

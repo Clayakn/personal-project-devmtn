@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Auth from '../Auth/Auth';
 import { Link } from 'react-router-dom';
-import './Profile.css';
 import { connect } from 'react-redux';
 import { updateMealplanId } from '../../redux/reducer';
 
@@ -57,7 +56,8 @@ class Profile extends Component {
         .then(response => {
         window.alert('Meal Plan successfully deleted')
         this.setState({
-            mealplans: ''
+            mealplans: '',
+            selectedTitleId: ''
         })
         this.forceUpdate();
         })
@@ -127,7 +127,7 @@ class Profile extends Component {
                 <p>Iodine: {this.state.mealplans ? (+this.state.mealplans[0].total_iodine).toFixed(2) : 0}IU</p> 
                 <p>Iron: {this.state.mealplans ? (+this.state.mealplans[0].total_iron).toFixed(2) : 0}mg</p> 
                 <p>Magnesium: {this.state.mealplans ? (+this.state.mealplans[0].total_magnesium).toFixed(2) : 0}mg</p> 
-                 <p>Manganese: {this.state.mealplans ? (+this.state.mealplans[0].total_manganese).toFixed(2) : 0}mg</p> 
+                <p>Manganese: {this.state.mealplans ? (+this.state.mealplans[0].total_manganese).toFixed(2) : 0}mg</p> 
                 <p>Phosphorus: {this.state.mealplans ? (+this.state.mealplans[0].total_phosphorus).toFixed(2) : 0}mg</p> 
                 <p>Potassium: {this.state.mealplans ? (+this.state.mealplans[0].total_potassium).toFixed(2) : 0}mg</p> 
                 <p>Sodium: {this.state.mealplans ? (+this.state.mealplans[0].total_sodium).toFixed(2) : 0}mg</p> 
