@@ -16,7 +16,7 @@ class Home extends Component {
       <div className='home_container'>
       <div style={{padding: '0 15px'}}>
       <br />
-      <h1 style={{textAlign: 'center'}}> Home Page</h1>
+      <h1 style={{textAlign: 'center'}}> Home</h1>
       <br />
       <p style={{textDecoration: 'underline #90AFC5', paddingBottom: 5}}>Purpose of Nutrition Made Easy:</p>
       <p>This is a quick starter guide on eating healthy. Our goal is to make nutrition easy to understand so that you can make better decisions about your eating habits. But what does nutrition exactly consist of? </p>

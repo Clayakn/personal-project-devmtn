@@ -11,7 +11,7 @@ import Protein from '../Protein/Protein';
 const Glossary = () => {
     return (
     <div>
-    Glossary
+    <h1 style={{textAlign: 'center', paddingTop: '10px'}}> Glossary</h1>
     <Water />
     <Vitamins />
     <Minerals />

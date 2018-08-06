@@ -45,7 +45,7 @@ class Nav extends Component {
       <div className='nav_container'>
         <div className='nav_tablist'>
           <div>
-          <Link to='/'><Icon size={20} className="nav_tabButton1" icon={home}/></Link>
+          <Link to='/'><Icon size={20} className="nav_tabButton1" onClick={() => this.setState({showMenu: false})} icon={home}/></Link>
           </div>
           <div>
           <Icon size={17} className="nav_tabButton2" onClick={() => this.setState({showMenu: !showMenu})} icon={menu}/>
