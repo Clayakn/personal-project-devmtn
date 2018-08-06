@@ -7,13 +7,14 @@
 
 .nav_tablist {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   color: $shadow;
-  height: 40px;
-  width: 120px;
+  min-height: 40px;
+  min-width: 140px;
   border: 1px solid black;
 }
+
 
 .nav_tabButton1 {
   color: $shadow;

@@ -39,6 +39,7 @@ class Nav extends Component {
   }
 
   render() {
+    console.log('this.state.username',this.state.username)
     const { showMenu, username } = this.state
     return (
       <div className='nav_container'>
@@ -60,7 +61,9 @@ class Nav extends Component {
             <br/>
             <li><NavLink to={username ? '/profile' : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Profile</NavLink></li>
             </ul>
-            <p>{username ? "Welcome: " + username : "No user is currently logged in"}</p>
+            <div>
+            <p>{username ? "Welcome: " + username : "No user is logged in"}</p>
+            </div>
       </div>
       );
     }

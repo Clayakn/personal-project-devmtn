@@ -1,12 +1,11 @@
 import React from 'react';
-import Logo from '../../images/natural-food-logo.png';
+import Banner from '../../images/banner.png';
 
 
 const Header = () => {
     return (
      <div>
-    <img className='header_logo' src={Logo} alt='Leaf icon for Nutrition Made Easy Logo'/>
-    Nutrition Made Easy
+    <img className='header_logo' src={Banner} alt='Banner for Nutrition Made Easy with a leaf logo'/>
     </div>
     );
 }

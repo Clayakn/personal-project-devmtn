@@ -1,9 +1,7 @@
 
-
-div {
-    p {
-        font-size: 14px;
-    }
+.home_section {
+    display: flex; 
+    justify-content: space-evenly;
 }
 
 .home_circle {

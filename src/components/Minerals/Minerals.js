@@ -64,7 +64,7 @@ const Minerals = () => {
         <h3>Zinc</h3>
         <p>BENEFITS & KEYWORDS: growth and development, immune function, nervous system function, protein formation, reproduction, taste and smell, wound healing</p>
         <br/>
-        <p>References from nutrition.gov</p>
+        <p>References: nutrition.gov</p>
         </div>
     );
 }

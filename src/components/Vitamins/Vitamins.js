@@ -66,7 +66,7 @@ const Vitamins = () => {
     <h3>Vitamin B12</h3>
     <p>BENEFITS & KEYWORDS: conversion of food into energy, nervous system function, red blood cell formation</p>
     <br/>
-    <p>References from nutrition.gov</p>
+    <p>References: nutrition.gov</p>
     </div>
     );
 }

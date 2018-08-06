@@ -12,6 +12,9 @@
           repeat: no-repeat;
           attachment: fixed;
         }
+    p {
+      font-size: $primary-font-size-paragraph;
+    }
   }
 
 button {
