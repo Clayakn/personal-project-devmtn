@@ -1,5 +1,5 @@
 import React from 'react';
-import vitaminsPic from '../../images/vitamins.jpg';
+import mineralsPic from '../../images/minerals.jpg';
 
 
 const Minerals = () => {
@@ -7,67 +7,64 @@ const Minerals = () => {
         <div className='nutrients_container'>
         <h1>Minerals</h1>
         <div>
-        <img src={vitaminsPic} alt='Multiple fruits sliced in half laid on a wooden table to showcase vitamins'/>
-        <p>Vitamins are a group of substances that are needed for normal cell function, growth, and development. There are 13 essential vitamins. This means that these vitamins are required for the body to work properly.</p>
+        <img src={mineralsPic} alt='Diary and fish items laid on a wooden table to showcase minerals'/>
+        <p>Minerals are important for your body to stay healthy. Your body uses minerals for many different jobs, including keeping your bones, muscles, heart, and brain working properly. Minerals are also important for making enzymes and hormones.</p>
         </div>
         <br/>
         <h3>Name List</h3>
         <ul>
-        <li>Vitamin A, RAE</li>
-        <li>Vitamin C, ascorbic acid</li>
-        <li>Vitamin D</li>
-        <li>Vitamin E (alpha-tocopherol)</li>
-        <li>Vitamin K (phylloquinone)</li>
-        <li>Vitamin B1 or Thiamin(e)</li>
-        <li>Vitamin B2 or Riboflavin</li>
-        <li>Vitamin B3 or Niacin</li>
-        <li>Vitamin B5 or Panthothenic acid</li>
-        <li>Vitamin B6</li>
-        <li>Vitamin B7 or Biotin</li>
-        <li>Folate (folic acid and B9)</li>
-        <li>Vitamin B12 (cyanocobalamin)</li>
+        <li>Calcium, Ca</li>
+        <li>Copper, Cu</li>
+        <li>Fluoride, F</li>
+        <li>Iodine, I</li>
+        <li>Iron, Fe</li>
+        <li>Magnesium, Mg</li>
+        <li>Manganese, Mn</li>
+        <li>Phosphorus, P</li>
+        <li>Potassium, K</li>
+        <li>Selenium, Se</li>
+        <li>Sodium, Na</li>
+        <li>Zinc, Zn</li>
         </ul>
         <br/>
-        <h3>Vitamin A</h3>
-        <p>BENEFITS & KEYWORDS: Good vision, healthy immune system, growth and development</p>
+        <h3>Calcium</h3>
+        <p>BENEFITS & KEYWORDS: blood clotting, bone and teeth formation, constriction and relaxation of blood vessels, hormone secretion, muscle contraction, nervous system function</p>
         <br/>
-        <h3>Vitamin C</h3>
-        <p>BENEFITS & KEYWORDS: Promotes wound healing, helps absorb iron, antioxidant</p>
+        <h3>Copper</h3>
+        <p>BENEFITS & KEYWORDS: antioxidant, bone formation, collagen and connective tissue formation, energy production, iron metabolism, nervous system function</p>
         <br/>
-        <h3>Vitamin D</h3>
-        <p>BENEFITS & KEYWORDS: Sunshine vitamin, helps absorb calcium, promotes bone growth</p>
+        <h3>Fluoride</h3>
+        <p>BENEFITS & KEYWORDS: decreases incidence of tooth cavities, builds and maintains heathy bones, strengthens bones and helps prevent bone fractures 
+        Source: http://www.healthsupplementsnutritionalguide.com/fluoride/</p>
         <br/>
-        <h3>Vitamin E</h3>
-        <p>BENEFITS & KEYWORDS: antioxidant, healthy immune system, repair damaged cells </p>
+        <h3>Iodine</h3>
+        <p>BENEFITS & KEYWORDS: growth and development, metabolism, reproduction, thyroid hormone production </p>
         <br/>
-        <h3>Vitamin K</h3>
-        <p>BENEFITS & KEYWORDS: Helps blood clot, prevents coagulation(sticking together) of blood</p>
+        <h3>Iron</h3>
+        <p>BENEFITS & KEYWORDS: energy production, growth and development, immune function, red blood cell formation, reproduction, wound healing</p>
         <br/>
-        <h3>Thiamin</h3>
-        <p>BENEFITS & KEYWORDS: Converts carbs into energy, essential for heart function, healthy nerve cells.</p>
+        <h3>Magnesium</h3>
+        <p>BENEFITS & KEYWORDS: blood pressure regulation, blood sugar regulation, bone formation, energy production, hormone secretion, hormone secretion, immune function, muscle contraction, nervous system function, normal heart rhythm, protein formation</p>
         <br/>
-        <h3>Riboflavin</h3>
-        <p>BENEFITS & KEYWORDS: 1 of 8 B-complex vitamins, maintains energy production, promotes eye health</p>
+        <h3>Manganese</h3>
+        <p>BENEFITS & KEYWORDS: (carbohydrate, protein, and cholesterol metabolism), cartilage and bone formation, wound healing</p>
         <br/>
-        <h3>Niacin</h3>
-        <p>BENEFITS & KEYWORDS: Balances blood cholesterol levels, turns food into energy, niacin flush</p>
+        <h3>Phosphorus</h3>
+        <p>BENEFITS & KEYWORDS: acid-base balance, bone formation, energy production and storage, hormone activation</p>
         <br/>
-        <h3>Panthothenic acid</h3>
-        <p>BENEFITS & KEYWORDS: Metabolism of food, involved in production of hormones and cholesterol</p>
+        <h3>Potassium</h3>
+        <p>BENEFITS & KEYWORDS: blood pressure regulation, carbohydrate metabolism, fluid balance, growth and development, heart function, muscle contraction, nervous system function, protein formation</p>
         <br/>
-        <h3>Vitamin B6</h3>
-        <p>BENEFITS & KEYWORDS: Pyridoxine, helps form red blood cells,  maintains brain function</p>
+        <h3>Selenium</h3>
+        <p>BENEFITS & KEYWORDS: antioxidant, immune function, reproduction, thyroid function</p>
         <br/>
-        <h3>Biotin</h3>
-        <p>BENEFITS & KEYWORDS: Energy production (metabolism of proteins and carbohydrates) </p>
+        <h3>Sodium</h3>
+        <p>BENEFITS & KEYWORDS: acid-base balance, blood pressure regulation, fluid balance, muscle contraction, nervous system function </p>
         <br/>
-        <h3>Folate</h3>
-        <p>BENEFITS & KEYWORDS: Helps in red blood cell formation, needed for the production of DNA</p>
+        <h3>Zinc</h3>
+        <p>BENEFITS & KEYWORDS: growth and development, immune function, nervous system function, protein formation, reproduction, taste and smell, wound healing</p>
         <br/>
-        <h3>Vitamin B12</h3>
-        <p>BENEFITS & KEYWORDS: Helps in red blood cell formation, maintain central nervous system, needed for the production of DNA</p>
-        <br/>
-        <p>References from Medlineplus.gov</p>
+        <p>References from nutrition.gov</p>
         </div>
     );
 }

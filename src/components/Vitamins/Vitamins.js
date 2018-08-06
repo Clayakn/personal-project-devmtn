@@ -3,7 +3,7 @@ import vitaminsPic from '../../images/vitamins.jpg';
 
 const Vitamins = () => {
     return (
-     <div className='vitamins_container'>
+     <div className='nutrients_container'>
     <h1>Vitamins</h1>
     <div>
     <img src={vitaminsPic} alt='Multiple fruits sliced in half laid on a wooden table to showcase vitamins'/>
@@ -28,45 +28,45 @@ const Vitamins = () => {
     </ul>
     <br/>
     <h3>Vitamin A</h3>
-    <p>BENEFITS & KEYWORDS: Good vision, healthy immune system, growth and development</p>
+    <p>BENEFITS & KEYWORDS: growth and development, immune function, reproduction, red blood cell formation, skin and bone formation, vision</p>
     <br/>
     <h3>Vitamin C</h3>
-    <p>BENEFITS & KEYWORDS: Promotes wound healing, helps absorb iron, antioxidant</p>
+    <p>BENEFITS & KEYWORDS: antioxidant, collagen and connective tissue formation, immune function, wound healing</p>
     <br/>
     <h3>Vitamin D</h3>
-    <p>BENEFITS & KEYWORDS: Sunshine vitamin, helps absorb calcium, promotes bone growth</p>
+    <p>BENEFITS & KEYWORDS: Sunshine vitamin, blood pressure regulation, bone growth, calcium balance, hormone production, immune function, nervous system function</p>
     <br/>
     <h3>Vitamin E</h3>
-    <p>BENEFITS & KEYWORDS: antioxidant, healthy immune system, repair damaged cells </p>
+    <p>BENEFITS & KEYWORDS: antioxidant, formation of blood vessels, immune function</p>
     <br/>
     <h3>Vitamin K</h3>
-    <p>BENEFITS & KEYWORDS: Helps blood clot, prevents coagulation(sticking together) of blood</p>
+    <p>BENEFITS & KEYWORDS: blood clotting, strong bones</p>
     <br/>
     <h3>Thiamin</h3>
-    <p>BENEFITS & KEYWORDS: Converts carbs into energy, essential for heart function, healthy nerve cells.</p>
+    <p>BENEFITS & KEYWORDS: 1 of 8 B-complex vitamins, conversion of food into energy, nervous system function</p>
     <br/>
     <h3>Riboflavin</h3>
-    <p>BENEFITS & KEYWORDS: 1 of 8 B-complex vitamins, maintains energy production, promotes eye health</p>
+    <p>BENEFITS & KEYWORDS: conversion of food into energy, growth and development, red blood cell formation</p>
     <br/>
     <h3>Niacin</h3>
-    <p>BENEFITS & KEYWORDS: Balances blood cholesterol levels, turns food into energy, niacin flush</p>
+    <p>BENEFITS & KEYWORDS: cholesterol production, conversion of food into energy, digestion, nervous system function, niacin flush</p>
     <br/>
     <h3>Panthothenic acid</h3>
-    <p>BENEFITS & KEYWORDS: Metabolism of food, involved in production of hormones and cholesterol</p>
+    <p>BENEFITS & KEYWORDS: converstion of food into energy, fat metabolism, hormone production, nervous system function, red blood cell formation</p>
     <br/>
     <h3>Vitamin B6</h3>
-    <p>BENEFITS & KEYWORDS: Pyridoxine, helps form red blood cells,  maintains brain function</p>
+    <p>BENEFITS & KEYWORDS: Pyridoxine, immune function, nervous system function, (protein, carbohydrate, and fat metabolism), red blood cell formation</p>
     <br/>
     <h3>Biotin</h3>
-    <p>BENEFITS & KEYWORDS: Energy production (metabolism of proteins and carbohydrates) </p>
+    <p>BENEFITS & KEYWORDS: energy storage, (protein, carbohydrate, and fat metabolism) </p>
     <br/>
     <h3>Folate</h3>
-    <p>BENEFITS & KEYWORDS: Helps in red blood cell formation, needed for the production of DNA</p>
+    <p>BENEFITS & KEYWORDS: prevention of birth defects, protein metabolism, red blood cell formation</p>
     <br/>
     <h3>Vitamin B12</h3>
-    <p>BENEFITS & KEYWORDS: Helps in red blood cell formation, maintain central nervous system, needed for the production of DNA</p>
+    <p>BENEFITS & KEYWORDS: conversion of food into energy, nervous system function, red blood cell formation</p>
     <br/>
-    <p>References from Medlineplus.gov</p>
+    <p>References from nutrition.gov</p>
     </div>
     );
 }

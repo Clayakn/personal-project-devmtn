@@ -3,7 +3,7 @@ import Waterpic from '../../images/water.jpg';
 
 const Water = () => {
     return (
-     <div className='water_container'>
+     <div className='nutrients_container'>
          <h1>Water</h1>
          <div>
             <img src={Waterpic} alt='Perspired glass of water set on a rock near the shores of the ocean displayed to showcase water'/>

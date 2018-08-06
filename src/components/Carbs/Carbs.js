@@ -5,7 +5,7 @@ import carbsPic from '../../images/carbohydrates.png';
 
 const Carbs = () => {
     return (
-     <div className='carbs_container'>
+     <div className='nutrients_container'>
         <h1>Carbohydrates</h1>
          <div>
             <img src={carbsPic} alt='Abundance sources of carbohydrates such as bananas and bread on a wooden table to showcase carbohydrates'/>

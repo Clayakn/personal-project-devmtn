@@ -4,7 +4,7 @@ import proteinPic from '../../images/protein.jpg';
 
 const Protein = () => {
     return (
-        <div className='protein_container'>
+        <div className='nutrients_container'>
         <h1>Protein</h1>
          <div>
             <img src={proteinPic} alt='Abundance sources of fats such as salmon and avocado on a wooden table to showcase fats'/>

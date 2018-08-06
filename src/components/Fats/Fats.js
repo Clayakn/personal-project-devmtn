@@ -5,7 +5,7 @@ import fatsPic from '../../images/fats.png';
 
 const Fats = () => {
     return (
-        <div className='fats_container'>
+        <div className='nutrients_container'>
         <h1>Fats</h1>
          <div>
             <img src={fatsPic} alt='Abundance sources of fats such as salmon and avocado on a wooden table to showcase fats'/>
