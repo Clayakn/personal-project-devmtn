@@ -1,0 +1,6 @@
+@import '../variables';
+@import '../mixins';
+
+.water_container {
+    @include box($style1...);
+}

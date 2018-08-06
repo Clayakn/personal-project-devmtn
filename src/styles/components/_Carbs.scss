@@ -1,0 +1,6 @@
+@import '../variables';
+@import '../mixins';
+
+.carbs_container {
+    @include box($style1...);
+}

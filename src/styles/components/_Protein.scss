@@ -1,0 +1,6 @@
+@import '../variables';
+@import '../mixins';
+
+.protein_container {
+    @include box($style1...);
+}

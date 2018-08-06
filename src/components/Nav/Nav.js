@@ -44,7 +44,7 @@ class Nav extends Component {
       <div className='nav_container'>
         <div className='nav_tablist'>
           <div>
-          <Link to='/' className="nav_tabButton1"><Icon size={20} icon={home}/></Link>
+          <Link to='/'><Icon size={20} className="nav_tabButton1" icon={home}/></Link>
           </div>
           <div>
           <Icon size={17} className="nav_tabButton2" onClick={() => this.setState({showMenu: !showMenu})} icon={menu}/>
@@ -54,13 +54,13 @@ class Nav extends Component {
           </div>
         </div>
           <ul className={showMenu ? "navMenuList open" : "navMenuList"}>
-            <li><NavLink to='/glossary' className="navMenuOption">Glossary</NavLink></li>
+            <li><NavLink to='/glossary' className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Glossary</NavLink></li>
             <br/>
             <li><NavLink to={username ? '/mealplan'  : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Meal Plan</NavLink></li>
             <br/>
             <li><NavLink to={username ? '/profile' : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Profile</NavLink></li>
             </ul>
-            <p>{username ? "Welcome: " + username : "No user is logged in"}</p>
+            <p>{username ? "Welcome: " + username : "No user is currently logged in"}</p>
       </div>
       );
     }

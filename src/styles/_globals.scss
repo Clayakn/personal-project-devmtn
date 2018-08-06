@@ -1,29 +1,29 @@
 @import './variables';
 
 
-body {
+ body {
     margin: 0;
     padding: 0;
-    font-family: $primary-font-size;
+    font-family: $primary-font-family;
     color: $text-color;
     background: {
-      image: url('../images/table-wallpaper.jpg'), url('../images/table-wallpaper-crop.png');
-      size: cover, cover;
-      repeat: no-repeat, repeat;
-      attachment: none, fixed;
-    }
+          image: url('../images/wood-wallpaper-elegant.jpg');
+          size: cover;
+          repeat: no-repeat;
+          attachment: fixed;
+        }
   }
 
 button {
   color: $text-color;
-  background-color: $base-color;
-  font-family: $primary-font-size;
+  background-color: $stone;
+  font-family: $primary-font-family;
   border-radius: 10px;
   border: 2px solid white;
 }
 
 %border {
-  border: 1px solid black;
+  border: 2px solid white;
 }
 
 %circle {

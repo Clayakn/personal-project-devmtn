@@ -6,7 +6,11 @@ import Glossary from './components/Glossary/Glossary';
 import Home from './components/Home/Home';
 import Mealplan from './components/Mealplan/Mealplan';
 import Profile from './components/Profile/Profile';
+import Vitamins from './components/Vitamins/Vitamins';
 import Water from './components/Water/Water';
+import Fats from './components/Fats/Fats';
+import Minerals from './components/Minerals/Minerals';
+import Protein from './components/Protein/Protein';
 import {Switch, Route} from 'react-router-dom';
 
 export default (
@@ -19,6 +23,10 @@ export default (
         <Route path='/glossary' component={Glossary} />
         <Route path='/water' component={Water} />
         <Route path='/carbs' component={Carbs} />
+        <Route path='/vitamins' component={Vitamins} />
+        <Route path='/fats' component={Fats} />
+        <Route path='/minerals' component={Minerals} />
+        <Route path='/protein' component={Protein} />
     </Switch>
 
 )

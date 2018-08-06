@@ -1,0 +1,19 @@
+
+
+@mixin box( $height, $width, $font-size) {
+    div {
+        display: flex;
+    } 
+    h1 {
+        padding: 10px 10px 10px;
+    }
+    img {
+        padding-left: 10px;
+        max-height: $height;
+        max-width: $width;
+    }
+    p {
+        font-size: $font-size;
+        padding: 0 10px;
+    }
+}

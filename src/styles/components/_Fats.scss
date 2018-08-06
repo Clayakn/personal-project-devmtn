@@ -1,0 +1,6 @@
+@import '../variables';
+@import '../mixins';
+
+.fats_container {
+    @include box($style1...);
+}
