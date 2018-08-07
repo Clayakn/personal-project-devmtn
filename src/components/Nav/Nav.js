@@ -77,9 +77,7 @@ class Nav extends Component {
             <div>
             <Link to='/'><Icon size={20} className="nav_tabButton1" onClick={() => this.setState({showMenu: false})} icon={home}/></Link>
             </div>
-            <div>
-            <Icon size={17} className="nav_tabButton2" onClick={() => this.setState({showMenu: !showMenu})} icon={menu}/>
-            </div>
+            <Link to='/glossary' className="navMenuOption">Glossary</Link>
             <div>
             {username ? <Link to='/'><button onClick={()=>this.logout()}> Logout</button></Link> : <button onClick={() => {this.login()}}>Login</button>}
             </div>

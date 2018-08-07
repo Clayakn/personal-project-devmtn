@@ -3,6 +3,7 @@ import data from '../../foodData.json';
 import axios from 'axios';
 import Auth from '../Auth/Auth';
 import { connect } from 'react-redux';
+import DoughnutChart from '../Charts/DoughnutChart';
 import { addNutrients, subtractNutrients, clearNutrients } from '../../redux/reducer';
 
 
@@ -241,11 +242,18 @@ saveMealPlan() {
     const displayMealList = this.state.mealList ? this.state.mealList.map((food, i) => {
       return (
         <div key={i}>
-        <p>{food.name}</p>
-        <p>Fat: {food.fat}g</p>
-        <p>Carbs: {food.carbs}g</p>
-        <p>Protein: {food.protein}g</p>
-        <p>Calories: {food.calories}kcal</p>
+          <div className='mealplan_mealList_container'>
+            <div style={{maxWidth: '200px'}}>
+              <p>{food.name}</p>
+              <p>Fat: {food.fat}g</p>
+              <p>Carbs: {food.carbs}g</p>
+              <p>Protein: {food.protein}g</p>
+              <p>Calories: {food.calories}kcal</p>
+            </div>
+            <div>
+            <DoughnutChart fats={food.fat} carbs={food.carbs} protein={food.protein}/>
+            </div>
+          </div>
         <button onClick={() => this.removeFood(i)}>Delete</button>
         </div>
       )
@@ -268,7 +276,7 @@ saveMealPlan() {
         {displayFoodList}
         </div>
         </div>
-        <div className='section'>
+        <div className='section_mealList'>
         Meal List(per 100g)
        {displayMealList}
         </div>
