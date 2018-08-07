@@ -1,0 +1,15 @@
+// Phone
+.large {
+    display: none;
+}
+
+// Website 
+@media (min-width: 1000px) {
+    .small {
+        display: none;
+    }
+
+    .large {
+        display: initial;
+    }
+}
