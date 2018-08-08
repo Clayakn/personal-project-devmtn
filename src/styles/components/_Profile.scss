@@ -20,4 +20,14 @@
         background: $stone;
         color: white;
     }
+
+    button {
+        width: 150px;
+    }
+}
+
+.profile_user_section {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-around;
 }

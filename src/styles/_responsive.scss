@@ -66,10 +66,30 @@
     }
 
     .mealplan_row {
-        border: 2px solid white;
+        border: 2px dashed $stone;
+        border-bottom: 2px dashed $stone;
+        box-shadow: inset 1px 0 $stone, inset -1px 0 $stone, 0 1px $stone, 0 -1px $stone;
+        margin-bottom: 1px;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    // Profile 
+    .profile_container {
+        select {
+            font-size: 17px;
+            max-width: 150px;
+        }
+        button {
+            width: 200px;
+        }
+    }
+
+    .profile_row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
 
 }
