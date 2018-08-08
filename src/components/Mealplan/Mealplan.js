@@ -4,6 +4,7 @@ import axios from 'axios';
 import Auth from '../Auth/Auth';
 import { connect } from 'react-redux';
 import DoughnutChart from '../Charts/DoughnutChart';
+import PieChart from '../Charts/PieChart';
 import { addNutrients, subtractNutrients, clearNutrients } from '../../redux/reducer';
 
 
@@ -281,11 +282,14 @@ saveMealPlan() {
        {displayMealList}
         </div>
         <div className='section'>
-        <h3>Total Count</h3>
+        <PieChart/>
+        <br/>
+        <h3>Cumulative Stats:</h3>
         <p>Fat: {+this.props.totalFat.toFixed(2)}g</p> 
         <p>Carbs: {+this.props.totalCarbs.toFixed(2)}g</p>
         <p>Protein: {+this.props.totalProtein.toFixed(2)}g</p>
         <p>Calories: {+this.props.totalCalories.toFixed(2)}kcal</p> 
+        <h3>Micronutrient Stats:</h3>
         <p>Vitamin A: {+this.props.totalVitaminA.toFixed(2)}µg</p> 
         <p>Vitamin C: {+this.props.totalVitaminC.toFixed(2)}mg</p> 
         <p>Vitamin D: {+this.props.totalVitaminD.toFixed(2)}IU</p> 

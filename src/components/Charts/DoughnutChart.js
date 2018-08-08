@@ -23,7 +23,7 @@ class DoughnutChart extends Component {
             render() {
               return (
                 <div>
-                    <div className='box'>
+                    <div>
                     <Pie 
                         data={this.state} 
                         height={60}
