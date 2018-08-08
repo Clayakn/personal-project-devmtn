@@ -1,7 +1,17 @@
+.home_container {
+    padding: 0 15px;
+   h1 {
+    text-align: center;
+   }
+   h3 {
+    text-align: center;
+   }
+}
 
 .home_section {
     display: flex; 
     justify-content: space-evenly;
+    width: 100%;
 }
 
 .home_circle {

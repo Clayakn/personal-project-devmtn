@@ -27,45 +27,45 @@ constructor(props) {
             console.log('this.state.datasets', this.state.datasets)
           return (
             <div>
-            <div>
-              <Pie 
-              data={options}
-              width={1}
-              height={1}
-              options={{
-                title: {
-                    display: true,
-                    text: 'MarcoNutrients(kcal)', 
-                    fontSize: 15,
-                    fontFamily: 'Palatino',
-                    fontColor: 'white'
+              <div>
+                <Pie 
+                data={options}
+                width={1}
+                height={1}
+                options={{
+                  title: {
+                      display: true,
+                      text: 'MarcoNutrients(kcal)', 
+                      fontSize: this.props.titleFont,
+                      fontFamily: 'Palatino',
+                      fontColor: 'white'
+                  },
+                  legend: {
+                    display: true, 
+                    labels: {
+                      fontColor: 'white',
+                      fontFamily: 'Palatino'
+                    },
+                  maintainAspectRatio: false
                 },
-                legend: {
-                  display: true, 
-                  labels: {
-                    fontColor: 'white',
-                    fontFamily: 'Palatino'
-                  },
-                maintainAspectRatio: false
-              },
-              tooltips: {
-                callbacks: {
-                  label: function(tooltipItem, data) {
-                    var dataset = data.datasets[tooltipItem.datasetIndex];
-                    var meta = dataset._meta[Object.keys(dataset._meta)[0]];
-                    var total = meta.total;
-                    var currentValue = dataset.data[tooltipItem.index];
-                    var percentage = parseFloat((currentValue/total*100).toFixed(1));
-                    return currentValue + ' (' + percentage + '%)';
-                  },
-                  title: function(tooltipItem, data) {
-                    return data.labels[tooltipItem[0].index];
+                tooltips: {
+                  callbacks: {
+                    label: function(tooltipItem, data) {
+                      var dataset = data.datasets[tooltipItem.datasetIndex];
+                      var meta = dataset._meta[Object.keys(dataset._meta)[0]];
+                      var total = meta.total;
+                      var currentValue = dataset.data[tooltipItem.index];
+                      var percentage = parseFloat((currentValue/total*100).toFixed(1));
+                      return currentValue + ' (' + percentage + '%)';
+                    },
+                    title: function(tooltipItem, data) {
+                      return data.labels[tooltipItem[0].index];
+                    }
                   }
-                }
-              },
-            }} 
-            />
-            </div>
+                },
+              }} 
+              />
+              </div>
             </div>
           );
         }

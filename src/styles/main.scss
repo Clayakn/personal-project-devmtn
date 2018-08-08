@@ -4,19 +4,16 @@
 // ===== VARIABLES ===== // 
 @import 'variables';
 
-// ===== Responsive ===== // 
-@import 'responsive';
-
 // ===== MIXINS ===== // 
 @import 'mixins';
 
 // ===== COMPONENTS ===== //
 @import './components/App';
-@import './components/EditMealplan';
 @import './components/Home';
 @import './components/Mealplan';
 @import './components/Nav';
 @import './components/Profile';
 @import './components/Nutrients';
 
-
+// ===== Responsive ===== // 
+@import 'responsive';

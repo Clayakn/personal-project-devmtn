@@ -75,20 +75,15 @@ class Nav extends Component {
           <div className='nav_tablist'>
             <Header />
             <div>
-            <Link to='/'><Icon size={20} className="nav_tabButton1" onClick={() => this.setState({showMenu: false})} icon={home}/></Link>
+            <Link to='/'><Icon size={25} className="nav_tabButton1" icon={home}/></Link>
             </div>
             <Link to='/glossary' className="navMenuOption">Glossary</Link>
+            <Link to={username ? '/mealplan'  : '/authentication'} className="navMenuOption">Meal Plan</Link>
+            <Link to={username ? '/profile'  : '/authentication'} className="navMenuOption">Profile</Link>
             <div>
             {username ? <Link to='/'><button onClick={()=>this.logout()}> Logout</button></Link> : <button onClick={() => {this.login()}}>Login</button>}
             </div>
           </div>
-            <ul className={showMenu ? "navMenuList open" : "navMenuList"}>
-              <li><NavLink to='/glossary' className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Glossary</NavLink></li>
-              <br/>
-              <li><NavLink to={username ? '/mealplan'  : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Meal Plan</NavLink></li>
-              <br/>
-              <li><NavLink to={username ? '/profile' : '/authentication'} className="navMenuOption" onClick={() => this.setState({showMenu: !showMenu})}>Profile</NavLink></li>
-              </ul>
               <div>
               <p>{username ? "Welcome: " + username : "No user is logged in"}</p>
               </div>

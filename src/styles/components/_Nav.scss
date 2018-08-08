@@ -2,7 +2,7 @@
 
 .nav_container {
     background-color: $stone;
-    font-size: $primary-font-size-paragraph;
+    font-size: $primary-font-size-paragraph-small;
 }
 
 .nav_tablist {
@@ -12,9 +12,7 @@
   color: $shadow;
   min-height: 40px;
   min-width: 140px;
-  border: 1px solid black;
 }
-
 
 .nav_tabButton1 {
   color: $shadow;
@@ -44,7 +42,4 @@
     color: $text-color;
     text-decoration: none;
   }
-  
-  li {
-  list-style-type: none;
-  }
+ 

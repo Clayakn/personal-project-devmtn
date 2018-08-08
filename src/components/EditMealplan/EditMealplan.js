@@ -285,7 +285,7 @@ resaveMealplan() {
     const displayFoodList = this.state.showFoodBank == true ? data.map((food, i) => {
       const foodId = food.ndbno
       return (
-      <div key={i} >
+      <div key={i}>
         <li>{food.name}</li>
         <button onClick={() => this.getFood(foodId)}>Add to Meal List</button>
       </div>
@@ -295,19 +295,18 @@ resaveMealplan() {
     const displayMealList = this.state.mealList ? this.state.mealList.map((food, i) => {
       return (
         <div key={i}>
-          <div className='editmealplan_mealList_container'>
-            <div style={{maxWidth: '200px'}}>
+        <br/>
+          <div className='mealplan_mealList_container'>
+            <div>
               <p>{food.name}</p>
               <p>Fat: {food.fat}g</p>
               <p>Carbs: {food.carbs}g</p>
               <p>Protein: {food.protein}g</p>
               <p>Calories: {food.calories}kcal</p>
             </div>
-            <div>
             <DoughnutChart fats={food.fat} carbs={food.carbs} protein={food.protein}/>
-            </div>
           </div>
-        <button onClick={() => this.removeFood(i)}>Delete</button>
+          <button onClick={() => this.removeFood(i)}>Delete</button>
         </div>
       )
     }) : ''
@@ -318,23 +317,28 @@ resaveMealplan() {
       {username.length 
       ?
       <div>
-      <div className='mealplanContainer1'>
-        <div className='section'>
-        Food Bank
+      <div className='small'>
+      <div className='mealplan_container'>
+      <h1>Meal Plan</h1>
+        <div className='mealplan_section'>
+        <br/>
+        <h3>Food Bank</h3>
         <button onClick={() => this.setState({showFoodBank: true})}>Get Food List</button>
-        <input placeholder='Search for food here'/>
-        <button>Filter Food List</button>
-        Results
-        <div style={{ height: "420px", width: "200px", overflow: "auto" }}>
+        <br />
+        <h3>Food List</h3>
+        <div className='mealplan_section_foodList'>
         {displayFoodList}
         </div>
+        <br/>
+        <input placeholder='Search for food here'/>
+        <button>Filter Food List</button>
         </div>
-        <div className='section'>
-        Meal List(per 100g)
+        <div className='mealplan_section'>
+        <h3>Meal List(per 100g)</h3>
        {displayMealList}
         </div>
-        <div className='section'>
-        <PieChart/>
+        <div className='mealplan_section'>
+        <PieChart titleFont={15}/>
         <br/>
         <h3>Cumulative Stats:</h3>
         <p>Fat: {+this.props.totalFat.toFixed(2)}g</p> 
@@ -367,21 +371,78 @@ resaveMealplan() {
         <p>Selenium: {+this.props.totalSelenium.toFixed(2)}µg</p> 
         <p>Zinc: {+this.props.totalZinc.toFixed(2)}mg</p> 
         </div>
-      </div>
-      <div className='mealplanContainer2'>
-        <div>
-        <h1>Follow these steps to Create a Meal Plan</h1>
-          <li> Use the Get all Foods Button to display the list of Foods</li>
-          <li> Select a number of meals to add to your meal list and check out the total stats</li>
-          <li> Enter a title and Save this Meal Plan</li>
-        </div>
-        <div className='section'>
-          <p>Title: {this.state.title}</p>
+        <div className='mealplan_section'>
+          <h3>Title: {this.state.title}</h3>
           <input name="title" value={this.state.title} onChange={e=>this.handleInput(e)} placeholder="Insert title here"/>
           <Link to='/profile'><button onClick={() => this.state.title ? this.resaveMealplan() : window.alert("Please insert a title")}>Resave Meal Plan</button></Link>
         </div>
       </div>
       </div>
+      <div className='large'>
+       <div className='mealplan_container'>
+       <h1>Meal Plan</h1>
+       <br/>
+       <div className='mealplan_row'>
+         <div className='mealplan_section'>
+         <br/>
+         <h3>Food Bank</h3>
+         <button onClick={() => this.setState({showFoodBank: true})}>Get Food List</button>
+         <br />
+         <h3>Food List</h3>
+         <div className='mealplan_section_foodList'>
+         {displayFoodList}
+         </div>
+         <br/>
+         <input placeholder='Search for food here'/>
+         <button>Filter Food List</button>
+         </div>
+         <div className='mealplan_section'>
+         <h3>Meal List(per 100g)</h3>
+        {displayMealList}
+         </div>
+         <div className='mealplan_section'>
+         <PieChart titleFont={20}/>
+         <br/>
+         <h3>Cumulative Stats:</h3>
+         <p>Fat: {+this.props.totalFat.toFixed(2)}g</p> 
+         <p>Carbs: {+this.props.totalCarbs.toFixed(2)}g</p>
+         <p>Protein: {+this.props.totalProtein.toFixed(2)}g</p>
+         <p>Calories: {+this.props.totalCalories.toFixed(2)}kcal</p> 
+         <h3>Micronutrient Stats:</h3>
+         <p>Vitamin A: {+this.props.totalVitaminA.toFixed(2)}µg</p> 
+         <p>Vitamin C: {+this.props.totalVitaminC.toFixed(2)}mg</p> 
+         <p>Vitamin D: {+this.props.totalVitaminD.toFixed(2)}IU</p> 
+         <p>Vitamin E: {+this.props.totalVitaminE.toFixed(2)}mg</p> 
+         <p>Vitamin K: {+this.props.totalVitaminK.toFixed(2)}µg</p> 
+         <p>Thiamin: {+this.props.totalThiamin.toFixed(2)}mg</p> 
+         <p>Riboflavin: {+this.props.totalRiboflavin.toFixed(2)}mg</p> 
+         <p>Niacin: {+this.props.totalNiacin.toFixed(2)}mg</p> 
+         <p>Vitamin B6: {+this.props.totalVitaminB6.toFixed(2)}mg</p> 
+         <p>Biotin: {+this.props.totalBiotin.toFixed(2)}IU</p> 
+         <p>Folate: {+this.props.totalFolate.toFixed(2)}µg</p> 
+         <p>Vitamin B12: {+this.props.totalVitaminB12.toFixed(2)}µg</p> 
+         <p>Calcium: {+this.props.totalCalcium.toFixed(2)}mg</p> 
+         <p>Copper: {+this.props.totalCopper.toFixed(2)}mg</p> 
+         <p>Fluoride: {+this.props.totalFluoride.toFixed(2)}µg</p> 
+         <p>Iodine: {+this.props.totalIodine.toFixed(2)}IU</p> 
+         <p>Iron: {+this.props.totalIron.toFixed(2)}mg</p> 
+         <p>Magnesium: {+this.props.totalMagnesium.toFixed(2)}mg</p> 
+         <p>Manganese: {+this.props.totalManganese.toFixed(2)}mg</p> 
+         <p>Phosphorus: {+this.props.totalPhosphorus.toFixed(2)}mg</p> 
+         <p>Potassium: {+this.props.totalPotassium.toFixed(2)}mg</p> 
+         <p>Sodium: {+this.props.totalSodium.toFixed(2)}mg</p> 
+         <p>Selenium: {+this.props.totalSelenium.toFixed(2)}µg</p> 
+         <p>Zinc: {+this.props.totalZinc.toFixed(2)}mg</p> 
+         </div>
+         </div>
+         <div className='mealplan_section'>
+          <h3>Title: {this.state.title}</h3>
+          <input name="title" value={this.state.title} onChange={e=>this.handleInput(e)} placeholder="Insert title here"/>
+          <Link to='/profile'><button onClick={() => this.state.title ? this.resaveMealplan() : window.alert("Please insert a title")}>Resave Meal Plan</button></Link>
+        </div>
+        </div>
+       </div>
+       </div>
       : 
       <Auth />
       }

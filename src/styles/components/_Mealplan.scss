@@ -1,26 +1,41 @@
-.mealplanContainer1 {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+@import '../variables';
+
+.mealplan_container {
+    padding-top: 15px;
+    padding-left: 10px;
+    display: flex; 
+    flex-direction: column;
+
+    h1 {
+        text-align: center;
+    }
 }
 
-.mealplanContainer2 {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-}
-
-.section {
-    border: 1px solid black;
+.mealplan_section {
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
+    max-width: 550px;
 }
 
-.section_mealList {
-    max-width: 500px;
+.mealplan_section_foodList {
+    @extend %border;
+    height: 420px; 
+    width: 200px; 
+    overflow: auto;
 }
+
 
 .mealplan_mealList_container {
     display: flex;
+    div {
+        min-width: 150px;
+    }
 }
+
+.mealplan_directions {
+    li {
+        list-style-type: circle;
+    }
+}
+

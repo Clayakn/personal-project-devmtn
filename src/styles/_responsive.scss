@@ -1,7 +1,21 @@
+@import './variables';
+@import './mixins';
+
 // Phone
 .large {
     display: none;
 }
+
+
+
+// Tablet 
+@media (min-width: 600px) {
+    %circle {
+        width: 250px; 
+    }
+}
+
+
 
 // Website 
 @media (min-width: 1000px) {
@@ -12,4 +26,50 @@
     .large {
         display: initial;
     }
+
+    body {
+        p {
+            font-size: $primary-font-size-paragraph-large;
+        }
+        h1 {
+            font-size: $primary-font-size-header-large;
+        }
+        h3 {
+            font-size: $secondary-font-size-header-large;
+        }
+    }
+
+    button {
+        font-size: $primary-font-size-button-large;
+    }
+    
+    %circle {
+        width: 350px; 
+    }
+
+    // Nav Bar
+    .navMenuOption  {
+        font-size: $primary-font-size-paragraph-large;
+    }
+
+    // Glossary 
+    .nutrients_container {
+        @include box($style2...);
+        li {
+            font-size: $primary-font-size-paragraph-large;
+        }
+    }
+
+    // Meal plan 
+    .mealplan_container {
+        padding-left: 0;
+    }
+
+    .mealplan_row {
+        border: 2px solid white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
 }

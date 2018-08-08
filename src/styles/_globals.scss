@@ -13,7 +13,10 @@
           attachment: fixed;
         }
     p {
-      font-size: $primary-font-size-paragraph;
+      font-size: $primary-font-size-paragraph-small;
+    }
+    h1 {
+      font-size: $primary-font-size-header-small;
     }
   }
 
@@ -23,7 +26,16 @@ button {
   font-family: $primary-font-family;
   border-radius: 10px;
   border: 2px solid white;
+  max-width: 250px;
 }
+
+input {
+  max-width: 250px;
+}
+
+li {
+  list-style-type: none;
+  }
 
 %border {
   border: 2px solid white;
@@ -31,7 +43,7 @@ button {
 
 %circle {
 	width: 150px;
-  height: 150px;
+  height: auto;
   border-radius: 50%;
 }
 

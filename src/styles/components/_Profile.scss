@@ -1,12 +1,23 @@
-.mealplanContainer {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+@import '../variables';
 
-.section {
-    border: 1px solid black;
-    display: flex;
+.profile_container {
+    padding-top: 15px;
+    padding-left: 10px;
+    display: flex; 
     flex-direction: column;
+
+    h1 {
+        text-align: center;
+    }
+
+    img {
+        max-width: 200px;
+        max-height: 200px;
+    }
+    
+    select {
+        max-width: 100px;
+        background: $stone;
+        color: white;
+    }
 }

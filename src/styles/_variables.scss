@@ -10,9 +10,22 @@ $text-color: #eee;
 // ==== FONTS ==== // 
 
 $primary-font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-$primary-font-size-paragraph: 15px;
+$primary-font-size-paragraph-small: 15px;
+$primary-font-size-paragraph-large: 20px;
+$primary-font-size-button-large: 17px;
+$primary-font-size-header-small: 20px;
+$primary-font-size-header-large: 27px;
+$secondary-font-size-header-large: 23px;
+
+
+// ====  IMAGES ==== // 
+$image-height-small: 80px; 
+$image-width-small: 100px;
+$image-height-large: 150px; 
+$image-width-large: 175px;
 
 // ==== STYLES ==== // 
 
 // Height, Width, Font-size
-$style1: 80px, 100px, $primary-font-size-paragraph
+$style1: $image-height-small, $image-width-small, $primary-font-size-paragraph-small, $primary-font-size-header-small;
+$style2: $image-height-large, $image-width-large, $primary-font-size-paragraph-large, $primary-font-size-header-large;

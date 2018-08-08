@@ -74,6 +74,7 @@ class Profile extends Component {
      const displayMealList = this.state.mealplans ? this.state.mealplans.map((food, i) => {
         return (
           <div key={i}>
+          <br/>
           <p>{food.meal_name}</p>
           <p>Fat: {food.fat}g</p>
           <p>Carbs: {food.carbohydrate}g</p>
@@ -86,23 +87,30 @@ class Profile extends Component {
         <div>
             {username.length
                 ? 
-                <div>
-                Profile
-                <p>{username}</p>
+                <div className='profile_container'>
+                <h1>Profile</h1>
+                <br/>
+                <h3>{username}</h3>
                 <img src={profilePicture} alt="profile from login information"/>
-                <p>Pick a meal plan below</p>
+                <br/>
+                <h3>Pick a Meal Plan</h3>
                 <select onChange={e => this.selectTitleIdFunc(e.target.value)}>
                 <option value={0} defaultValue>Select One</option>
                 {displayTitles}
                 </select>
+                <br/>
                 <button onClick={() => this.fetchMealplan()}>Fetch Meal Plan</button>
-                <Link to='EditMealplan'><button onClick={() => this.editMealplan()}>Edit Meal Plan</button></Link>
+                <br/>
+                <Link to='EditMealplan'><button style={{width: '100%'}}onClick={() => this.editMealplan()}>Edit Meal Plan</button></Link>
+                <br/>
                 <button onClick={() => this.deleteMealplan()}>Delete Meal Plan</button>
+                <br/>
                 <div className='mealplanContainer'>
                 <div className='section'>
-                Meal List(per 100g)
+                <h3>Meal List(per 100g)</h3>
                 {displayMealList}
                 </div>
+                <br/>
                 <div className='section'>
                 <h3>Total Count</h3>
                 <p>Fat: {this.state.mealplans ? (+this.state.mealplans[0].total_fat).toFixed(2) : 0}g</p> 
