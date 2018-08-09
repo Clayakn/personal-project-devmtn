@@ -62,8 +62,8 @@ class Mealplan extends Component {
       this.state.mealList[id].manganese, 
       this.state.mealList[id].phosphorus, 
       this.state.mealList[id].potassium, 
-      this.state.mealList[id].sodium, 
       this.state.mealList[id].selenium, 
+      this.state.mealList[id].sodium, 
       this.state.mealList[id].zinc
     )
     const copyMealList = this.state.mealList
@@ -106,8 +106,8 @@ class Mealplan extends Component {
     const manganese = nutrients.filter(nutrient => nutrient.name === "Manganese, Mn")[0] ? nutrients.filter(nutrient => nutrient.name === "Manganese, Mn")[0].value : 0
     const phosphorus = nutrients.filter(nutrient => nutrient.name === "Phosphorus, P")[0] ? nutrients.filter(nutrient => nutrient.name === "Phosphorus, P")[0].value : 0
     const potassium = nutrients.filter(nutrient => nutrient.name === "Potassium, K")[0] ? nutrients.filter(nutrient => nutrient.name === "Potassium, K")[0].value : 0
-    const sodium = nutrients.filter(nutrient => nutrient.name === "Sodium, Na")[0] ? nutrients.filter(nutrient => nutrient.name === "Sodium, Na")[0].value : 0
     const selenium = nutrients.filter(nutrient => nutrient.name === "Selenium, Se")[0] ? nutrients.filter(nutrient => nutrient.name === "Selenium, Se")[0].value : 0
+    const sodium = nutrients.filter(nutrient => nutrient.name === "Sodium, Na")[0] ? nutrients.filter(nutrient => nutrient.name === "Sodium, Na")[0].value : 0
     const zinc = nutrients.filter(nutrient => nutrient.name === "Zinc, Zn")[0] ? nutrients.filter(nutrient => nutrient.name === "Zinc, Zn")[0].value : 0
   
   
@@ -138,8 +138,8 @@ class Mealplan extends Component {
     manganese, 
     phosphorus, 
     potassium, 
-    sodium, 
     selenium, 
+    sodium, 
     zinc
     })
   this.props.addNutrients(
@@ -188,7 +188,7 @@ class Mealplan extends Component {
  // Axios post to save Meal List + Meal Plan into DB
 saveMealPlan() {
   const { title, mealList } = this.state
-  const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc} = this.props
+  const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSelenium, totalSodium, totalZinc} = this.props
   axios.post('/api/mealplan', {
     totalFat,
     totalCarbs,
@@ -215,8 +215,8 @@ saveMealPlan() {
     totalManganese, 
     totalPhosphorus,
     totalPotassium,
-    totalSodium, 
     totalSelenium,
+    totalSodium, 
     totalZinc, 
     title,
     mealList})
@@ -325,8 +325,8 @@ saveMealPlan() {
         <p>Manganese: {+this.props.totalManganese.toFixed(2)}mg</p> 
         <p>Phosphorus: {+this.props.totalPhosphorus.toFixed(2)}mg</p> 
         <p>Potassium: {+this.props.totalPotassium.toFixed(2)}mg</p> 
-        <p>Sodium: {+this.props.totalSodium.toFixed(2)}mg</p> 
         <p>Selenium: {+this.props.totalSelenium.toFixed(2)}µg</p> 
+        <p>Sodium: {+this.props.totalSodium.toFixed(2)}mg</p> 
         <p>Zinc: {+this.props.totalZinc.toFixed(2)}mg</p> 
         </div>
         <div className='mealplan_section'>
@@ -398,8 +398,8 @@ saveMealPlan() {
          <p>Manganese: {+this.props.totalManganese.toFixed(2)}mg</p> 
          <p>Phosphorus: {+this.props.totalPhosphorus.toFixed(2)}mg</p> 
          <p>Potassium: {+this.props.totalPotassium.toFixed(2)}mg</p> 
-         <p>Sodium: {+this.props.totalSodium.toFixed(2)}mg</p> 
          <p>Selenium: {+this.props.totalSelenium.toFixed(2)}µg</p> 
+         <p>Sodium: {+this.props.totalSodium.toFixed(2)}mg</p> 
          <p>Zinc: {+this.props.totalZinc.toFixed(2)}mg</p> 
          </div>
          </div>
@@ -420,7 +420,7 @@ saveMealPlan() {
 }
 
 const mapStateToProps = state => {
-  const { totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc} = state
+  const { totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSelenium, totalSodium, totalZinc} = state
  return { 
   totalFat, 
   totalCarbs, 
@@ -447,8 +447,8 @@ const mapStateToProps = state => {
   totalManganese, 
   totalPhosphorus, 
   totalPotassium, 
-  totalSodium, 
   totalSelenium, 
+  totalSodium, 
   totalZinc
   } 
 }

@@ -24,8 +24,8 @@ const initialState = {
     totalManganese: 0, 
     totalPhosphorus: 0, 
     totalPotassium: 0, 
-    totalSodium: 0, 
     totalSelenium: 0, 
+    totalSodium: 0, 
     totalZinc: 0,
     mealplanId: ''
 }
@@ -68,8 +68,8 @@ export default function reducer(state = initialState, action){
                 totalManganese: (+state.totalManganese + +action.payload.manganese),
                 totalPhosphorus: (+state.totalPhosphorus + +action.payload.phosphorus),
                 totalPotassium: (+state.totalPotassium + +action.payload.potassium),
-                totalSodium: (+state.totalSodium + +action.payload.sodium),
                 totalSelenium: (+state.totalSelenium + +action.payload.selenium),
+                totalSodium: (+state.totalSodium + +action.payload.sodium),
                 totalZinc: (+state.totalZinc + +action.payload.zinc),
             } 
             return Object.assign({}, state, addPayload)
@@ -100,8 +100,8 @@ export default function reducer(state = initialState, action){
                 totalManganese: (+state.totalManganese - +action.payload.manganese),
                 totalPhosphorus: (+state.totalPhosphorus - +action.payload.phosphorus),
                 totalPotassium: (+state.totalPotassium - +action.payload.potassium),
-                totalSodium: (+state.totalSodium - +action.payload.sodium),
                 totalSelenium: (+state.totalSelenium - +action.payload.selenium),
+                totalSodium: (+state.totalSodium - +action.payload.sodium),
                 totalZinc: (+state.totalZinc - +action.payload.zinc),
             }
             return Object.assign({}, state, subtractPayload)
@@ -122,7 +122,7 @@ export default function reducer(state = initialState, action){
 //     }
 // }
 
-export function addNutrients(fat, carbs, protein, calories, vitamina, vitaminc, vitamind, vitamine, vitamink, thiamin, riboflavin, niacin, vitaminb6, biotin, folate, vitaminb12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, sodium, selenium, zinc){
+export function addNutrients(fat, carbs, protein, calories, vitamina, vitaminc, vitamind, vitamine, vitamink, thiamin, riboflavin, niacin, vitaminb6, biotin, folate, vitaminb12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, selenium, sodium, zinc){
     return {
         type: ADD_NUTRIENTS,
         payload: {
@@ -151,14 +151,14 @@ export function addNutrients(fat, carbs, protein, calories, vitamina, vitaminc, 
             manganese, 
             phosphorus, 
             potassium, 
-            sodium, 
             selenium, 
+            sodium, 
             zinc
         }
     }
 }
 
-export function subtractNutrients(fat, carbs, protein, calories, vitamina, vitaminc, vitamind, vitamine, vitamink, thiamin, riboflavin, niacin, vitaminb6, biotin, folate, vitaminb12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, sodium, selenium, zinc){
+export function subtractNutrients(fat, carbs, protein, calories, vitamina, vitaminc, vitamind, vitamine, vitamink, thiamin, riboflavin, niacin, vitaminb6, biotin, folate, vitaminb12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, selenium, sodium, zinc){
     return {
         type: SUBTRACT_NUTRIENTS,
         payload: {
@@ -187,8 +187,8 @@ export function subtractNutrients(fat, carbs, protein, calories, vitamina, vitam
             manganese, 
             phosphorus, 
             potassium, 
-            sodium, 
             selenium, 
+            sodium, 
             zinc
         }
     }
@@ -223,8 +223,8 @@ export function clearNutrients(){
             totalManganese: 0, 
             totalPhosphorus: 0, 
             totalPotassium: 0, 
-            totalSodium: 0, 
             totalSelenium: 0, 
+            totalSodium: 0, 
             totalZinc: 0
         }
     }

@@ -26,8 +26,8 @@ meal_name AS name
 , manganese 
 , phosphorus 
 , potassium 
-, sodium 
 , selenium 
+, sodium 
 , zinc 
 FROM meals
 WHERE totalmealstat_id = ${mealplanId};

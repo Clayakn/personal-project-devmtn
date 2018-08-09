@@ -140,8 +140,8 @@ class Profile extends Component {
                     <p>Manganese: {this.state.mealplans ? (+this.state.mealplans[0].total_manganese).toFixed(2) : 0}mg</p> 
                     <p>Phosphorus: {this.state.mealplans ? (+this.state.mealplans[0].total_phosphorus).toFixed(2) : 0}mg</p> 
                     <p>Potassium: {this.state.mealplans ? (+this.state.mealplans[0].total_potassium).toFixed(2) : 0}mg</p> 
-                    <p>Sodium: {this.state.mealplans ? (+this.state.mealplans[0].total_sodium).toFixed(2) : 0}mg</p> 
                     <p>Selenium: {this.state.mealplans ? (+this.state.mealplans[0].total_selenium).toFixed(2) : 0}µg</p> 
+                    <p>Sodium: {this.state.mealplans ? (+this.state.mealplans[0].total_sodium).toFixed(2) : 0}mg</p> 
                     <p>Zinc: {this.state.mealplans ? (+this.state.mealplans[0].total_zinc).toFixed(2) : 0}mg</p> 
                     </div>
                     </div>

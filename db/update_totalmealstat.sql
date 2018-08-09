@@ -25,8 +25,8 @@ SET title = ${title}
 , total_manganese = ${totalManganese} 
 , total_phosphorus = ${totalPhosphorus} 
 , total_potassium = ${totalPotassium} 
-, total_sodium = ${totalSodium} 
 , total_selenium = ${totalSelenium}
+, total_sodium = ${totalSodium} 
 , total_zinc  = ${totalZinc}
 WHERE id = ${mealplanId};
 

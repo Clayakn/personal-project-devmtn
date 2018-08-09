@@ -39,8 +39,8 @@ id SERIAL PRIMARY KEY
 , total_manganese DECIMAL
 , total_phosphorus DECIMAL
 , total_potassium DECIMAL
-, total_sodium DECIMAL
 , total_selenium DECIMAL
+, total_sodium DECIMAL
 , total_zinc DECIMAL
 , user_id INTEGER REFERENCES users (id)
 );
@@ -75,8 +75,8 @@ id SERIAL PRIMARY KEY
 , manganese DECIMAL
 , phosphorus DECIMAL
 , potassium DECIMAL
-, sodium DECIMAL
 , selenium DECIMAL
+, sodium DECIMAL
 , zinc DECIMAL
 , totalmealstat_id INTEGER REFERENCES totalmealstats (id)
 );
@@ -84,23 +84,6 @@ id SERIAL PRIMARY KEY
 SELECT * FROM users;
 SELECT * FROM totalmealstats;
 SELECT * FROM meals;
--- Testing Data
-
-INSERT INTO users 
-(auth0_id, email, username, profile_pic)
-VALUES
-(123, 'gmail@andrew.com', 'Andrew', 'www.google.com');
-
-INSERT INTO totalMealStats
-(title, total_fat, total_carbohydrate, total_protein, total_calories, total_vitamin_a, total_vitamin_c, total_vitamin_d, total_vitamin_e, total_vitamin_k, total_thiamin, total_riboflavin, total_niacin, total_vitamin_b6, total_biotin, total_folate, total_vitamin_b12, total_calcium, total_copper, total_fluoride, total_iodine, total_iron, total_magnesium, total_manganese, total_phosphorus, total_potassium, total_sodium, total_selenium, total_zinc, user_id)
-VALUES 
-('Meal Plan 1',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1);
-
-INSERT INTO meals
-(meal_name, fat, carbohydrate, protein, calories, vitamin_a, vitamin_c, vitamin_d, vitamin_e, vitamin_k, thiamin, riboflavin, niacin, vitamin_b6, biotin, folate, vitamin_b12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, sodium, selenium, zinc, totalmealstat_id)
-VALUES 
-('Ultimate Sandwich',2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1);
-
 
 
 
