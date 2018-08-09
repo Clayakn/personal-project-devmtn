@@ -60,7 +60,7 @@ module.exports = {
     createMealplan: (req, res) => {
         const dbInstance = req.app.get('db')
         const userId = req.session.user.id
-        const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc, title, mealList} = req.body
+        const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSelenium, totalSodium, totalZinc, title, mealList} = req.body
         dbInstance.read_user({userId})
         .then(users => {
         dbInstance.create_totalmealstat({
@@ -90,8 +90,8 @@ module.exports = {
             totalManganese, 
             totalPhosphorus, 
             totalPotassium, 
-            totalSodium, 
             totalSelenium, 
+            totalSodium, 
             totalZinc,
             userId: users[0].id
         })
@@ -123,8 +123,8 @@ module.exports = {
           manganese: meal.manganese,
           phosphorus: meal.phosphorus,
           potassium: meal.potassium,
-          sodium: meal.sodium,
           selenium: meal.selenium,
+          sodium: meal.sodium,
           zinc: meal.zinc,
           totalMealStatId: mealStats[0].id 
          }))
@@ -171,7 +171,7 @@ module.exports = {
     updateMealplan(req, res) {
         const { mealplanId } = req.params
         const dbInstance = req.app.get('db')
-        const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSodium, totalSelenium, totalZinc, title, mealList} = req.body
+        const {totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSelenium, totalSodium, totalZinc, title, mealList} = req.body
         dbInstance.update_totalmealstat({
             title,
             totalFat,
@@ -199,8 +199,8 @@ module.exports = {
             totalManganese, 
             totalPhosphorus, 
             totalPotassium, 
-            totalSodium, 
             totalSelenium, 
+            totalSodium, 
             totalZinc,
             mealplanId
         })
@@ -234,8 +234,8 @@ module.exports = {
                 manganese: meal.manganese,
                 phosphorus: meal.phosphorus,
                 potassium: meal.potassium,
-                sodium: meal.sodium,
                 selenium: meal.selenium,
+                sodium: meal.sodium,
                 zinc: meal.zinc,
                 totalMealStatId: mealplanId
             }))  
