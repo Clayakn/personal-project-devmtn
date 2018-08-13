@@ -68,7 +68,6 @@ class Mealplan extends Component {
 
  getFood(id) {
   axios.get(`https://api.nal.usda.gov/ndb/reports/?ndbno=${id}&type=f&format=json&api_key=${process.env.REACT_APP_API_KEY}`).then(response => {
-    console.log('response', response)
     const nutrients = response.data.report.food.nutrients
     const fat = nutrients.filter(nutrient => nutrient.name === "Total lipid (fat)")[0].value
     const carbs = nutrients.filter(nutrient => nutrient.name === "Carbohydrate, by difference")[0].value
@@ -99,7 +98,6 @@ class Mealplan extends Component {
     const selenium = nutrients.filter(nutrient => nutrient.name === "Selenium, Se")[0] ? nutrients.filter(nutrient => nutrient.name === "Selenium, Se")[0].value : 0
     const sodium = nutrients.filter(nutrient => nutrient.name === "Sodium, Na")[0] ? nutrients.filter(nutrient => nutrient.name === "Sodium, Na")[0].value : 0
     const zinc = nutrients.filter(nutrient => nutrient.name === "Zinc, Zn")[0] ? nutrients.filter(nutrient => nutrient.name === "Zinc, Zn")[0].value : 0
-  
   
   this.state.mealList.push({
     name: response.data.report.food.name,
@@ -158,8 +156,8 @@ class Mealplan extends Component {
     manganese, 
     phosphorus, 
     potassium, 
-    sodium, 
     selenium, 
+    sodium, 
     zinc
   )
   this.forceUpdate();
@@ -220,6 +218,8 @@ saveMealPlan() {
    
 
   render() {
+    console.log('this.state.mealList',this.state.mealList)
+    console.log('this.props.totalSodium', this.props.totalSodium)
     const displayFoodList = this.state.showFoodBank == true ? data.filter((e,i) => {
       return e.name.toLowerCase().startsWith(this.state.filterFoodBank.toLowerCase());
     }).map((food, i) => {
