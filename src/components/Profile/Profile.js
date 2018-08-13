@@ -11,8 +11,6 @@ class Profile extends Component {
     constructor(){
         super();
         this.state = {
-            username: '',
-            profilePicture: '',
             titles: '',
             selectedTitleId: '',
             mealplans: ''
@@ -22,13 +20,11 @@ class Profile extends Component {
         this.deleteMealplan = this.deleteMealplan.bind(this)
     }
 
-    // Retrieving user info and collecting all meal plan titles user has created
-    componentDidMount() {
+     // Retrieving user info and collecting all meal plan titles user has created
+     componentDidMount() {
         axios.get('/api/user-data-title').then(response => {
             this.setState({
                 titles: response.data[0].titles,
-                username: response.data[0].username,
-                profilePicture: response.data[0].profilePicture
             })
             this.forceUpdate();
         }).catch(error  => console.log('Axios error GET componentDidMount in Profile.js', error))
@@ -67,7 +63,7 @@ class Profile extends Component {
     }
     
     render() {
-     const { username, profilePicture } = this.state
+    console.log('this.state.titles',this.state.titles)
      const displayTitles = this.state.titles.length ? this.state.titles.map((title,i) => {
          return(
              <option key={i} value={title.id}>{title.title}</option>
@@ -85,9 +81,11 @@ class Profile extends Component {
           </div>
         )
       }) : ''
+
+      const ConditionalLink = this.state.selectedTitleId ? Link : 'div'
       return (
         <div>
-            {username.length
+            {this.props.user
                 ?
                 <div>
                 <div className='small'>
@@ -95,18 +93,18 @@ class Profile extends Component {
                 <h1>Profile</h1>
                 <br/>
                         <div className='profile_user_section'>
-                        <h3>{username}</h3>
-                        <img src={profilePicture} alt="profile from login information"/>
+                        <h3>{this.props.user.username}</h3>
+                        <img src={this.props.user.profilePicture} alt="profile from login information"/>
                         <br/>
                         <h3>Pick a Meal Plan</h3>
                         <select onChange={e => this.selectTitleIdFunc(e.target.value)}>
-                        <option value={0} defaultValue>Select One</option>
+                        <option value={''} defaultValue>Select One</option>
                         {displayTitles}
                         </select>
                         <br/>
                         <button onClick={() => this.fetchMealplan()}>Fetch Meal Plan</button>
                         <br/>
-                        <Link to='EditMealplan'><button onClick={() => this.editMealplan()}>Edit Meal Plan</button></Link>
+                        <ConditionalLink to='EditMealplan'><button onClick={() => this.editMealplan()}>Edit Meal Plan</button></ConditionalLink>
                         <br/>
                         <button onClick={() => this.deleteMealplan()}>Delete Meal Plan</button>
                         <br/>
@@ -229,18 +227,18 @@ class Profile extends Component {
                 <br/>
                 <div className='profile_row'>
                         <div className='profile_user_section'>
-                        <h3>{username}</h3>
-                        <img src={profilePicture} alt="profile from login information"/>
+                        <h3>{this.props.user.username}</h3>
+                        <img src={this.props.user.profilePicture} alt="profile from login information"/>
                         <br/>
                         <h3>Pick a Meal Plan</h3>
                         <select onChange={e => this.selectTitleIdFunc(e.target.value)}>
-                        <option value={0} defaultValue>Select One</option>
+                        <option value={''} defaultValue>Select One</option>
                         {displayTitles}
                         </select>
                         <br/>
                         <button onClick={() => this.fetchMealplan()}>Fetch Meal Plan</button>
                         <br/>
-                        <Link to='EditMealplan'><button onClick={() => this.editMealplan()}>Edit Meal Plan</button></Link>
+                        <ConditionalLink to='EditMealplan'><button onClick={() => this.editMealplan()}>Edit Meal Plan</button></ConditionalLink>
                         <br/>
                         <button onClick={() => this.deleteMealplan()}>Delete Meal Plan</button>
                         <br/>
@@ -367,6 +365,13 @@ class Profile extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    const { user } = state
+    return {
+        user
+    }
+}
 
 
-export default connect(null, { updateMealplanId })(Profile);
+
+export default connect(mapStateToProps, { updateMealplanId })(Profile);

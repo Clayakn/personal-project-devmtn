@@ -13,10 +13,10 @@ class Mealplan extends Component {
   constructor(){
     super();
     this.state = {
-      username: '',
       mealList: [],
       title: '',
       showFoodBank: false,
+      filterFoodBank: ''
     }
     this.getFood = this.getFood.bind(this)
     this.removeFood = this.removeFood.bind(this)
@@ -27,9 +27,6 @@ class Mealplan extends Component {
   // Fetch user to verify login
   componentDidMount(){
     const mealplanId = this.props.mealplanId
-    function getUser() {
-       return axios.get('/api/user-data');
-    }
 
     function fetchTotalMealStat(){
         return axios.get(`/api/totalMealStats/${mealplanId}`);
@@ -39,9 +36,8 @@ class Mealplan extends Component {
         return axios.get(`/api/meals/${mealplanId}`);
     }
 
-    axios.all([getUser(),fetchTotalMealStat(), fetchMeals()]).then(axios.spread((user,mealStat,meal) => {
+    axios.all([fetchTotalMealStat(), fetchMeals()]).then(axios.spread((mealStat,meal) => {
         this.setState({
-            username: user.data.username,
             title: mealStat.data.totalMealStats[0].title
         })
         this.props.clearNutrients();
@@ -281,13 +277,16 @@ resaveMealplan() {
    
 
   render() {
-    console.log('this.state.mealList', this.state.mealList)
-    const displayFoodList = this.state.showFoodBank == true ? data.map((food, i) => {
+    console.log('this.props.user', this.props.user)
+    const displayFoodList = this.state.showFoodBank == true ? data.filter((e,i) => {
+      return e.name.toLowerCase().startsWith(this.state.filterFoodBank.toLowerCase());
+    }).map((food, i) => {
       const foodId = food.ndbno
       return (
       <div key={i}>
+        <br/>
         <li>{food.name}</li>
-        <button onClick={() => this.getFood(foodId)}>Add to Meal List</button>
+        <button onClick={() => this.getFood(foodId)}>Add</button>
       </div>
       ) 
     }) : ''
@@ -311,10 +310,9 @@ resaveMealplan() {
       )
     }) : ''
     
-    const { username } = this.state
     return (
       <div>
-      {username.length 
+      {this.props.user
       ?
       <div>
       <div className='small'>
@@ -330,8 +328,7 @@ resaveMealplan() {
         {displayFoodList}
         </div>
         <br/>
-        <input placeholder='Search for food here'/>
-        <button>Filter Food List</button>
+        <input name="filterFoodBank" value={this.state.filterFoodBank} onChange={(e) => this.handleInput(e)} placeholder='Search for food here'/>
         </div>
         <div className='mealplan_section'>
         <h3>Meal List(per 100g)</h3>
@@ -393,8 +390,7 @@ resaveMealplan() {
          {displayFoodList}
          </div>
          <br/>
-         <input placeholder='Search for food here'/>
-         <button>Filter Food List</button>
+         <input  name="filterFoodBank" value={this.state.filterFoodBank} onChange={(e) => this.handleInput(e)} placeholder='Search for food here'/>
          </div>
          <div className='mealplan_section'>
          <h3>Meal List(per 100g)</h3>
@@ -452,8 +448,9 @@ resaveMealplan() {
 }
 
 const mapStateToProps = state => {
-  const { totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSelenium, totalSodium, totalZinc, mealplanId} = state
+  const { user, totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSelenium, totalSodium, totalZinc, mealplanId} = state
  return { 
+  user,
   totalFat, 
   totalCarbs, 
   totalProtein, 

@@ -12,10 +12,10 @@ class Mealplan extends Component {
   constructor(){
     super();
     this.state = {
-      username: '',
       mealList: [],
       title: '',
-      showFoodBank: false
+      showFoodBank: false,
+      filterFoodBank: ''
     }
     this.getFood = this.getFood.bind(this)
     this.removeFood = this.removeFood.bind(this)
@@ -23,16 +23,6 @@ class Mealplan extends Component {
     this.saveMealPlan = this.saveMealPlan.bind(this)
   }
 
-  // Fetch user to verify login
-  componentDidMount(){
-    axios.get('/api/user-data').then(response => {
-      this.setState({
-        username: response.data.username,
-      })
-    }).catch(error => {
-      console.log('Axios error GET with componentDidMount on Mealplan.js', error)
-    })
-  }
 
   // Method to delete food item from Meal List and Redux 
   removeFood(id) {
@@ -221,7 +211,7 @@ saveMealPlan() {
     title,
     mealList})
     .then( response => {
-      this.setState({title: '', mealList: []})
+      this.setState({title: '', mealList: [], filterFoodBank: ''})
       this.props.clearNutrients();
       window.alert('Meal Plan successfully created, Check your profile to see your created meal plans')
     })
@@ -230,17 +220,21 @@ saveMealPlan() {
    
 
   render() {
-    const displayFoodList = this.state.showFoodBank == true ? data.map((food, i) => {
+    const displayFoodList = this.state.showFoodBank == true ? data.filter((e,i) => {
+      return e.name.toLowerCase().startsWith(this.state.filterFoodBank.toLowerCase());
+    }).map((food, i) => {
       const foodId = food.ndbno
       return (
       <div key={i} >
+        <br/>
         <li>{food.name}</li>
-        <button onClick={() => this.getFood(foodId)}>Add to Meal List</button>
+        <button onClick={() => this.getFood(foodId)}>Add</button>
       </div>
       ) 
     }) : ''
 
-    const displayMealList = this.state.mealList ? this.state.mealList.map((food, i) => {
+    const displayMealList = this.state.mealList ?
+     this.state.mealList.map((food, i) => {
       return (
         <div key={i}>
         <br/>
@@ -259,10 +253,9 @@ saveMealPlan() {
       )
     }) : ''
     
-    const { username } = this.state
     return (
       <div>
-      {username.length 
+      {this.props.user
       ?
       <div>
       <div className='small'>
@@ -288,8 +281,7 @@ saveMealPlan() {
         {displayFoodList}
         </div>
         <br/>
-        <input placeholder='Search for food here'/>
-        <button>Filter Food List</button>
+        <input name="filterFoodBank" value={this.state.filterFoodBank} onChange={(e) => this.handleInput(e)} placeholder='Search for food here'/>
         </div>
         <div className='mealplan_section'>
         <h3>Meal List(per 100g)</h3>
@@ -361,8 +353,7 @@ saveMealPlan() {
          {displayFoodList}
          </div>
          <br/>
-         <input placeholder='Search for food here'/>
-         <button>Filter Food List</button>
+         <input name="filterFoodBank" value={this.state.filterFoodBank} onChange={(e) => this.handleInput(e)} placeholder='Search for food here'/>
          </div>
          <div className='mealplan_section'>
          <h3>Meal List(per 100g)</h3>
@@ -420,8 +411,9 @@ saveMealPlan() {
 }
 
 const mapStateToProps = state => {
-  const { totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSelenium, totalSodium, totalZinc} = state
- return { 
+  const { user, totalFat, totalCarbs, totalProtein, totalCalories, totalVitaminA, totalVitaminC, totalVitaminD, totalVitaminE, totalVitaminK, totalThiamin, totalRiboflavin, totalNiacin, totalVitaminB6, totalBiotin, totalFolate, totalVitaminB12, totalCalcium, totalCopper, totalFluoride, totalIodine, totalIron, totalMagnesium, totalManganese, totalPhosphorus, totalPotassium, totalSelenium, totalSodium, totalZinc} = state
+ return {
+  user, 
   totalFat, 
   totalCarbs, 
   totalProtein, 

@@ -1,0 +1,15 @@
+.footer_container {
+    margin-top: 10px;
+    padding: 10px 0;
+    background: black;
+    display: flex; 
+    justify-content: space-evenly;
+    p {
+        align-self: center;
+    }
+}
+
+.footer_social_icon {
+    margin: 0 10px;
+}
+

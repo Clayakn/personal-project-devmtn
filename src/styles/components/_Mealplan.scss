@@ -21,15 +21,20 @@
 .mealplan_section_foodList {
     @extend %border;
     height: 420px; 
-    width: 200px; 
+    width: 250px; 
     overflow: auto;
+
+    button {
+        font-size: 12px;
+    }
 }
 
 
 .mealplan_mealList_container {
     display: flex;
+    justify-content: space-between;
     div {
-        min-width: 150px;
+        min-width: 180px;
     }
 }
 

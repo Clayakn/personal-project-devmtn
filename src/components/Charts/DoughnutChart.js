@@ -25,14 +25,16 @@ class DoughnutChart extends Component {
                 <div>
                     <div>
                     <Pie 
-                        data={this.state} 
-                        height={60}
+                        height='70'
+                        width='300'
+                        data={this.state}
                         options={{
+                            responsive: false, 
+                            maintainAspectRatio: false,
                             cutoutPercentage: 50,
                             legend: {
                                 display: false, 
                             },
-                            maintainAspectRatio: false
                         }}
                         />
                     </div>

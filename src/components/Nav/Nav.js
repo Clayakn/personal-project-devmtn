@@ -5,6 +5,8 @@ import { menu } from 'react-icons-kit/iconic/menu';
 import { home } from 'react-icons-kit/iconic/home';
 import axios from 'axios';
 import Header from '../Header/Header';
+import { connect } from 'react-redux';
+import { updateUser } from '../../redux/reducer';
 
 class Nav extends Component {
   constructor(){
@@ -20,6 +22,7 @@ class Nav extends Component {
       this.setState({
         username: response.data.username,
       })
+      this.props.updateUser(response.data)
     }).catch(error => {
       console.log('Axios error GET with componentDidMount on Nav.js', error)
     })
@@ -95,4 +98,4 @@ class Nav extends Component {
 }
 
 
-export default Nav;
+export default connect(null, { updateUser })(Nav);

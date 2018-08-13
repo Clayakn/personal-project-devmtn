@@ -1,4 +1,5 @@
 const initialState = {
+    user: '',
     totalFat: 0, 
     totalCarbs: 0,
     totalProtein: 0,
@@ -31,16 +32,16 @@ const initialState = {
 }
 
 
-// const UPDATE_USER_INFO = 'UPDATE_USER_INFO'
-const ADD_NUTRIENTS = 'ADD_NUTRIENTS'
-const SUBTRACT_NUTRIENTS = 'SUBTRACT_NUTRIENTS'
-const CLEAR_NUTRIENTS = 'CLEAR_NUTRIENTS'
-const UPDATE_MEALPLAN_ID = 'UPDATE_MEALPLAN_ID'
+const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
+const ADD_NUTRIENTS = 'ADD_NUTRIENTS';
+const SUBTRACT_NUTRIENTS = 'SUBTRACT_NUTRIENTS';
+const CLEAR_NUTRIENTS = 'CLEAR_NUTRIENTS';
+const UPDATE_MEALPLAN_ID = 'UPDATE_MEALPLAN_ID';
 
 export default function reducer(state = initialState, action){
     switch(action.type) {
-        // case UPDATE_USER_INFO:
-        //     return Object.assign({}, state, action.payload)
+        case UPDATE_USER_INFO:
+            return Object.assign({}, state, action.payload)
         case ADD_NUTRIENTS:
             const addPayload = {
                 totalFat: (+state.totalFat + +action.payload.fat),
@@ -113,14 +114,14 @@ export default function reducer(state = initialState, action){
     }
 }
 
-// export function updateUser(user){
-//     return {
-//         type: UPDATE_USER_INFO,
-//         payload: {
-//             user
-//         }
-//     }
-// }
+export function updateUser(user){
+    return {
+        type: UPDATE_USER_INFO,
+        payload: {
+            user
+        }
+    }
+}
 
 export function addNutrients(fat, carbs, protein, calories, vitamina, vitaminc, vitamind, vitamine, vitamink, thiamin, riboflavin, niacin, vitaminb6, biotin, folate, vitaminb12, calcium, copper, fluoride, iodine, iron, magnesium, manganese, phosphorus, potassium, selenium, sodium, zinc){
     return {

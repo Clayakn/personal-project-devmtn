@@ -23,15 +23,13 @@ constructor(props) {
                 ]
               }]
             }
-            console.log('this.props', this.props)
-            console.log('this.state.datasets', this.state.datasets)
           return (
             <div>
               <div>
                 <Pie 
                 data={options}
-                width={1}
                 height={1}
+                width={1}
                 options={{
                   title: {
                       display: true,
