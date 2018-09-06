@@ -69,6 +69,7 @@ class MixDataHorizontal extends Component {
             }]
         };
         const options = {
+          // Maintain Aspect Ratio
             responsive: true,
             title: {
                 display: true,
@@ -98,6 +99,7 @@ class MixDataHorizontal extends Component {
             //   ref={this.ctxRef}
               height={300}
               width={100}
+              // redraw={true}
               data={data}
               options={options}
             //   plugins={plugins}

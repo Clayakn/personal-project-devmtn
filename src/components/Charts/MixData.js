@@ -88,6 +88,7 @@ class MixData extends Component {
                 fill: false
               }
             },
+            // Maintain Aspect Ratio
         
           };
         return (
@@ -97,6 +98,7 @@ class MixData extends Component {
             //   ref={this.ctxRef}
               height={300}
               width={1200}
+              // redraw={true}
               data={data}
               options={options}
             //   plugins={plugins}

@@ -27,6 +27,7 @@ class DoughnutChart extends Component {
                     <Pie 
                         height='70'
                         width='300'
+                        // redraw={true}
                         data={this.state}
                         options={{
                             responsive: false, 

@@ -30,6 +30,7 @@ constructor(props) {
                 data={options}
                 height={1}
                 width={1}
+                // redraw={true}
                 options={{
                   title: {
                       display: true,
