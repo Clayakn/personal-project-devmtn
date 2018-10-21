@@ -45,6 +45,3 @@ NutritionMadeEasy is a full stack application that creates meal plans based off 
 <img src="./images_screenshots/profile-filled.png"/>
 - Responsive
 <img src="./images_screenshots/profile-responsive.png"/>
-
-**Trello**
-<img src="./images_screenshots/trello-layout.png"/>
