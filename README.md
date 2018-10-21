@@ -1,6 +1,7 @@
 # NutritionMadeEasy 
-**Link to Site: <a href="https://www.nutritionmadeeasy.us">Link</a>Link]**
-**Link to Trello: <a href="https://trello.com/b/LArcMVbE/nutrition-made-easy">Link</a>Link]**
+**Link to Site: <a href="https://www.nutritionmadeeasy.us">Link</a>**
+<br/>
+**Link to Trello: <a href="https://trello.com/b/LArcMVbE/nutrition-made-easy">Link</a>**
 
 ## About 
 NutritionMadeEasy is a full stack application that creates meal plans based off of items pulled from the USDA nutrition API. Users are able to create, read, update, and delete mealplans. 
