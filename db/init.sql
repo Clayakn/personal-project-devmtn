@@ -6,8 +6,8 @@ DROP TABLE IF EXISTS totalmealstats CASCADE;
 CREATE TABLE users (
 id SERIAL PRIMARY KEY
 , auth0_id TEXT
-, email VARCHAR(100) 
-, username VARCHAR(40) UNIQUE
+, email VARCHAR(100)
+, username VARCHAR(40)
 , profile_pic TEXT
 );
 
