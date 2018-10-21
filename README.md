@@ -1,8 +1,8 @@
 # NutritionMadeEasy 
-## [Link] (https://www.nutritionmadeeasy.us)
+**[Link] (https://www.nutritionmadeeasy.us)**
 
 ## About 
-NutritionMadeEasy is a full stack application that creates meal plans based off of items pulled from the USDA nutrition API. Users are able to create,read, update, and delete mealplans. 
+NutritionMadeEasy is a full stack application that creates meal plans based off of items pulled from the USDA nutrition API. Users are able to create, read, update, and delete mealplans. 
 
 ## Technologies / Libraries Used 
 - Reactjs (Front-end Framework)
@@ -25,3 +25,26 @@ NutritionMadeEasy is a full stack application that creates meal plans based off 
 ## Screenshots 
 **Home Screen**
 <img src="./images_screenshots/home-screen.png"/>
+
+**Major Nutrition Group**
+<img src="./images_screenshots/major-food-group-fats.png"/>
+
+**Auth0 Login**
+<img src="./images_screenshots/auth0-login.png"/>
+
+**Mealplan**
+- Blank
+<img src="./images_screenshots/mealplan-empty.png"/>
+- Filled
+<img src="./images_screenshots/mealplan-filled.png"/>
+
+**Profile**
+- Blank
+<img src="./images_screenshots/profile-empty.png"/>
+- Filled
+<img src="./images_screenshots/profile-filled.png"/>
+- Responsive
+<img src="./images_screenshots/profile-responsive.png"/>
+
+**Trello**
+<img src="./images_screenshots/trello-layout.png"/>
